@@ -29,6 +29,7 @@ package org.jebtk.math.ui.matrix;
 
 
 import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.AnnotationMatrix;
 import org.jebtk.math.matrix.MatrixEventListener;
 import org.jebtk.modern.table.ModernTableModel;
@@ -87,7 +88,22 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	 */
 	@Override
 	public Object getValueAt(int row, int col) {
-		return mMatrix.get(row - mColAnns, col  - mRowAnns);
+		int r = row - mColAnns;
+		int c = col  - mRowAnns;
+		
+		if (c < 0 && r < 0) {
+			// We only want to show annotations on the last row so that they
+			// are not repeated if there are multiple column annotations
+			if (r == -1) {
+				return mMatrix.get(r, c);
+			} else {
+				return TextUtils.EMPTY_STRING;
+			}
+		//} else if (c > -1 && r == -1 && mColAnns > 1) {
+		//	return mMatrix.getColumnAnnotationName(r) + ": " + mMatrix.get(r, c);
+		} else {
+			return mMatrix.get(r, c);
+		}
 	}
 	
 	/* (non-Javadoc)
