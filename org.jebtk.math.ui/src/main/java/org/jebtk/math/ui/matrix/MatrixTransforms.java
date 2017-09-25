@@ -27,8 +27,10 @@
  */
 package org.jebtk.math.ui.matrix;
 
+import org.jebtk.math.matrix.AnnotatableMatrix;
 import org.jebtk.math.matrix.AnnotationMatrix;
-import org.jebtk.math.matrix.MatrixOperations;
+import org.jebtk.math.matrix.utils.MatrixArithmetic;
+import org.jebtk.math.matrix.utils.MatrixOperations;
 import org.jebtk.math.ui.MeanFilterDialog;
 import org.jebtk.math.ui.MinExpFilterDialog;
 import org.jebtk.math.ui.MinMaxThresholdDialog;
@@ -58,7 +60,7 @@ public class MatrixTransforms {
 		dialog.setVisible(true);
 		
 		if (dialog.getStatus() == ModernDialogStatus.OK) {
-			return MatrixOperations.minThreshold(matrix, dialog.getValue());
+			return MatrixOperations.min(matrix, dialog.getValue());
 		} else {
 			return null;
 		}
@@ -80,7 +82,9 @@ public class MatrixTransforms {
 		dialog.setVisible(true);
 		
 		if (dialog.getStatus() == ModernDialogStatus.OK) {
-			return MatrixOperations.subtract(matrix, dialog.getValue());
+			AnnotationMatrix ret = new AnnotatableMatrix(matrix, true);
+			MatrixArithmetic.subtract(dialog.getValue(), ret);
+			return ret;
 		} else {
 			return null;
 		}
@@ -105,7 +109,7 @@ public class MatrixTransforms {
 		dialog.setVisible(true);
 		
 		if (dialog.getStatus() == ModernDialogStatus.OK) {
-			return MatrixOperations.minMaxThreshold(matrix, 
+			return MatrixOperations.threshold(matrix, 
 					dialog.getMin(), 
 					dialog.getMax());
 		} else {
