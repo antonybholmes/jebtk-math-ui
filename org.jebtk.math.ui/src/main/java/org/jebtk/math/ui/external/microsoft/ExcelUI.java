@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
@@ -215,7 +216,7 @@ public class ExcelUI {
 					// Again we must ignore black and white because POI encodes
 					// them incorrectly
 					if (!style.getBackground().equals(Color.WHITE) && !style.getBackground().equals(Color.BLACK)) {
-						cellStyle.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
+						cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 						cellStyle.setFillForegroundColor(new XSSFColor(style.getBackground()));
 					}
 					
