@@ -75,7 +75,6 @@ public class MinMaxThresholdDialog extends ModernDialogTaskWindow implements Mod
 		setup(min, max);
 
 		createUi();
-
 	}
 
 	/**
