@@ -46,7 +46,7 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
@@ -178,9 +178,9 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
 		this.mIds = ids;
 
 		for (String type : types) {
-			if (type.equals(AnnotationMatrix.ROW_NAMES)) {
+			if (type.equals(DataFrame.ROW_NAMES)) {
 				mTypeCombo.addMenuItem("Row Names");
-			} else if (type.equals(AnnotationMatrix.COLUMN_NAMES)) {
+			} else if (type.equals(DataFrame.COLUMN_NAMES)) {
 				mTypeCombo.addMenuItem("Column Names");
 			} else {
 				mTypeCombo.addMenuItem(type);

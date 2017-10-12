@@ -27,7 +27,7 @@
  */
 package org.jebtk.math.ui.matrix;
 
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 
 
 // TODO: Auto-generated Javadoc
@@ -43,7 +43,7 @@ public class EditableMatrixTableModel extends MatrixTableModel {
 	 *
 	 * @param matrix the matrix
 	 */
-	public EditableMatrixTableModel(AnnotationMatrix matrix) {
+	public EditableMatrixTableModel(DataFrame matrix) {
 		super(matrix);
 	}
 	/* (non-Javadoc)

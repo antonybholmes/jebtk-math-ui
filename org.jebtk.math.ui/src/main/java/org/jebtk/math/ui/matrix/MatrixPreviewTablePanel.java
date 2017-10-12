@@ -29,7 +29,7 @@ package org.jebtk.math.ui.matrix;
 
 import java.awt.BorderLayout;
 
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.EmptyTableModel;
 import org.jebtk.modern.table.ModernSpreadsheet;
@@ -60,14 +60,14 @@ public class MatrixPreviewTablePanel extends ModernWidget {
 	/**
 	 * The member matrix.
 	 */
-	private AnnotationMatrix mMatrix;
+	private DataFrame mMatrix;
 	
 	/**
 	 * Instantiates a new matrix preview table panel.
 	 *
 	 * @param matrix the matrix
 	 */
-	public MatrixPreviewTablePanel(AnnotationMatrix matrix) {
+	public MatrixPreviewTablePanel(DataFrame matrix) {
 		mMatrix = matrix;
 		
 		//table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -101,7 +101,7 @@ public class MatrixPreviewTablePanel extends ModernWidget {
 	 *
 	 * @return the matrix
 	 */
-	public AnnotationMatrix getMatrix() {
+	public DataFrame getMatrix() {
 		return mMatrix;
 	}
 }

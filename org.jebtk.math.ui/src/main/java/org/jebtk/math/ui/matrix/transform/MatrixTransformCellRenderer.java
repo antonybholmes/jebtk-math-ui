@@ -31,7 +31,7 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.text.Formatter;
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.history.ModernHistoryListBasicCellRenderer;
@@ -122,7 +122,7 @@ public class MatrixTransformCellRenderer extends ModernHistoryListBasicCellRende
 	 * @param description the description
 	 * @param matrix the matrix
 	 */
-	private void setText(int row, String name, String description, AnnotationMatrix matrix) {
+	private void setText(int row, String name, String description, DataFrame matrix) {
 		mText1 = Integer.toString(row + 1) + ". " + name;
 		//mText2 = description;
 		mText3 = new StringBuilder().append(Formatter.number().format((matrix.getRowCount()))).append(" rows x ").append(Formatter.number().format(matrix.getColumnCount())).append(" columns").toString();

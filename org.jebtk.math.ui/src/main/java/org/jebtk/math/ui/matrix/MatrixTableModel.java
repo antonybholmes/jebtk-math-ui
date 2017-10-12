@@ -30,7 +30,7 @@ package org.jebtk.math.ui.matrix;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.math.matrix.MatrixEventListener;
 import org.jebtk.modern.table.ModernTableModel;
 
@@ -46,7 +46,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	/**
 	 * The member matrix.
 	 */
-	private AnnotationMatrix mMatrix;
+	private DataFrame mMatrix;
 	
 	/** The m row anns. */
 	protected int mRowAnns = 0;
@@ -59,7 +59,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	 *
 	 * @param matrix the matrix
 	 */
-	public MatrixTableModel(AnnotationMatrix matrix) {
+	public MatrixTableModel(DataFrame matrix) {
 		mMatrix = matrix;
 		
 		matrix.addMatrixListener(this);
@@ -153,7 +153,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	 *
 	 * @return the matrix
 	 */
-	public AnnotationMatrix getMatrix() {
+	public DataFrame getMatrix() {
 		return mMatrix;
 	}
 	

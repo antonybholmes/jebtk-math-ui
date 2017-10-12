@@ -42,7 +42,7 @@ import javax.swing.Box;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
@@ -219,9 +219,9 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
 		this.types = types;
 		
 		for (String type : types) {
-			if (type.equals(AnnotationMatrix.ROW_NAMES)) {
+			if (type.equals(DataFrame.ROW_NAMES)) {
 				typeCombo.addMenuItem("Row Names");
-			} else if (type.equals(AnnotationMatrix.COLUMN_NAMES)) {
+			} else if (type.equals(DataFrame.COLUMN_NAMES)) {
 				typeCombo.addMenuItem("Column Names");
 			} else {
 				typeCombo.addMenuItem(type);

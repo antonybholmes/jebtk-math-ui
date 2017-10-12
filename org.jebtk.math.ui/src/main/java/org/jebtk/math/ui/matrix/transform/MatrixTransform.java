@@ -28,7 +28,7 @@
 package org.jebtk.math.ui.matrix.transform;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.math.matrix.AnnotationMatrix;
+import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
@@ -48,7 +48,7 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 	/**
 	 * The member input matrix.
 	 */
-	protected AnnotationMatrix mMatrix;
+	protected DataFrame mMatrix;
 	
 	/**
 	 * The member description.
@@ -75,7 +75,7 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 	 */
 	public MatrixTransform(ModernWindow parent,
 			String name, 
-			AnnotationMatrix inputMatrix) {
+			DataFrame inputMatrix) {
 		this(parent, name, name, inputMatrix);
 	}
 	
@@ -90,7 +90,7 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 	public MatrixTransform(ModernWindow parent,
 			String name, 
 			String description, 
-			AnnotationMatrix inputMatrix) {
+			DataFrame inputMatrix) {
 		mParent = parent;
 		mName = name;
 		mDescription = description;
@@ -102,7 +102,7 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 	 *
 	 * @param inputMatrix the new matrix
 	 */
-	public void setMatrix(AnnotationMatrix inputMatrix) {
+	public void setMatrix(DataFrame inputMatrix) {
 		mMatrix = inputMatrix;
 	}
 	
@@ -111,7 +111,7 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 	 *
 	 * @return the matrix
 	 */
-	public AnnotationMatrix getMatrix() {
+	public DataFrame getMatrix() {
 		return mMatrix;
 	}
 	
@@ -142,6 +142,16 @@ public class MatrixTransform implements MatrixTransformEventProducer {
 		return mDescription;
 	}
 
+	/**
+	 * Apply transform via ui action. This action is only called when the
+	 * user clicks on an item to activate it and therefore can be used
+	 * to separate actions that should be automatically run and those that
+	 * should be started only when the user does something.
+	 */
+	public void uiApply() {
+		apply();
+	}
+	
 	/**
 	 * Enable gui editing of function.
 	 */
