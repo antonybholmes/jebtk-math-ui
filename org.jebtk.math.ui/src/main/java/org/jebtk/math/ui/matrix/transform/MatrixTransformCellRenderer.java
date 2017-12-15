@@ -125,7 +125,7 @@ public class MatrixTransformCellRenderer extends ModernHistoryListBasicCellRende
 	private void setText(int row, String name, String description, DataFrame matrix) {
 		mText1 = Integer.toString(row + 1) + ". " + name;
 		//mText2 = description;
-		mText3 = new StringBuilder().append(Formatter.number().format((matrix.getRowCount()))).append(" rows x ").append(Formatter.number().format(matrix.getColumnCount())).append(" columns").toString();
+		mText3 = new StringBuilder().append(Formatter.number().format((matrix.getRows()))).append(" rows x ").append(Formatter.number().format(matrix.getCols())).append(" columns").toString();
 	}
 
 }

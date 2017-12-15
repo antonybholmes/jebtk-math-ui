@@ -72,7 +72,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	 */
 	@Override
 	public int getColumnCount() {
-		return mMatrix.getExtColumnCount();
+		return mMatrix.getExtCols();
 	}
 
 	/* (non-Javadoc)
@@ -80,7 +80,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	 */
 	@Override
 	public int getRowCount() {
-		return mMatrix.getExtRowCount();
+		return mMatrix.getExtRows();
 	}
 
 	/* (non-Javadoc)
@@ -161,7 +161,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
 	public int getHeadingIndex(String heading) {
 		String lh = heading.toLowerCase();
 		
-		for (int i = 0; i < mMatrix.getColumnCount(); ++i) {
+		for (int i = 0; i < mMatrix.getCols(); ++i) {
 			if (mMatrix.getColumnName(i).toLowerCase().contains(lh)) {
 				return i;
 			}
