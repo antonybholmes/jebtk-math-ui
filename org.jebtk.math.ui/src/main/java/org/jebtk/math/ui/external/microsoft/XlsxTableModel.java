@@ -30,10 +30,12 @@ package org.jebtk.math.ui.external.microsoft;
 import java.awt.Color;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.math.external.microsoft.Excel;
@@ -58,7 +60,7 @@ public class XlsxTableModel extends ExcelTableModel {
 	public XlsxTableModel(Path file) throws InvalidFormatException, IOException {
 		this(Excel.createXlsxWorkbook(file));
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -69,7 +71,7 @@ public class XlsxTableModel extends ExcelTableModel {
 	public XlsxTableModel(XSSFWorkbook workbook) throws InvalidFormatException, IOException {
 		this(workbook, false, 0, false);
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -84,7 +86,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			int rowAnnotations) throws InvalidFormatException, IOException {
 		this(file, hasHeader, rowAnnotations, false);
 	}
-	
+
 	/**
 	 * Create an excel table model.
 	 *
@@ -101,7 +103,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			boolean supportColor) throws InvalidFormatException, IOException {
 		this(new XSSFWorkbook(OPCPackage.open(file.toFile())), null, hasHeader, rowAnnotations, supportColor);// new HSSFWorkbook(file));
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -120,7 +122,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			boolean supportColor) throws InvalidFormatException, IOException {
 		this(new XSSFWorkbook(OPCPackage.open(file.toFile())), sheet, hasHeader, rowAnnotations, supportColor);// new HSSFWorkbook(file));
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -131,7 +133,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			boolean hasHeader) {
 		this(workbook, hasHeader, 0, false);
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -144,7 +146,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			int rowAnnotations) {
 		this(workbook, hasHeader, rowAnnotations, false);
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -159,7 +161,7 @@ public class XlsxTableModel extends ExcelTableModel {
 			boolean supportColor) {
 		this(workbook, null, hasHeader, rowAnnotations, supportColor);
 	}
-	
+
 	/**
 	 * Instantiates a new xlsx table model.
 	 *
@@ -179,7 +181,7 @@ public class XlsxTableModel extends ExcelTableModel {
 				rowAnnotations,
 				supportColor);
 	}
-	
+
 
 	/* (non-Javadoc)
 	 * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getCellStyle(int, int)
@@ -189,43 +191,44 @@ public class XlsxTableModel extends ExcelTableModel {
 		if (!getSupportColor()) {
 			return ModernDataCellStyle.DEFAULT_STYLE;
 		}
-		
+
 		if (getSheet().getRow(row) == null) {
 			return ModernDataCellStyle.DEFAULT_STYLE;
 		}
-		
+
 		if (getSheet().getRow(row).getCell(column) == null) {
 			return ModernDataCellStyle.DEFAULT_STYLE;
 		}
-		
+
 		if (getSheet().getRow(row).getCell(column).getCellStyle() == null) {
 			return ModernDataCellStyle.DEFAULT_STYLE;
 		}
-		
+
 		ModernDataCellStyle style = new ModernDataCellStyle();
-		
+
 		String hexColor;
 		Color color;
-		
-		if (((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFont().getXSSFColor() != null) {
-			hexColor =
-				((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFont().getXSSFColor().getARGBHex().substring(2);
-		
+
+		XSSFColor xssf = ((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFont().getXSSFColor();
+
+		if (xssf != null) {
+			hexColor = xssf.getARGBHex().substring(2);
+
 			color = ColorUtils.decodeHtmlColor(hexColor);
-	   
+
 			style.setColor(color);
 		}
-		
+
 		if (((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor() != null) {
 			hexColor = ((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor().getARGBHex().substring(2);
-		
+
 			color = ColorUtils.decodeHtmlColor(hexColor);
-			
+
 			//System.err.println("Background " + color);
-	    
+
 			style.setBackground(color);
 		}
-		
+
 		return style;
 	}
 }
