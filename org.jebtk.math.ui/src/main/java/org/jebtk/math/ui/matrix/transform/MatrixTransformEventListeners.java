@@ -30,47 +30,59 @@ package org.jebtk.math.ui.matrix.transform;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Listen for when an underlying matrix changes.
  *
  * @author Antony Holmes Holmes
  */
-public class MatrixTransformEventListeners extends EventProducer<MatrixTransformListener> implements MatrixTransformEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class MatrixTransformEventListeners extends EventProducer<MatrixTransformListener>
+    implements MatrixTransformEventProducer {
 
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#addMatrixTransformListener(edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
-	 */
-	public void addMatrixTransformListener(MatrixTransformListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
-	 */
-	public void removeMatrixTransformListener(MatrixTransformListener l) {
-		mListeners.remove(l);
-	}
-	
-	/**
-	 * Fire matrix transform changed.
-	 */
-	public void fireMatrixTransformChanged() {
-		fireMatrixTransformChanged(new ChangeEvent(this, MATRIX_TRANSFORM_CHANGED_EVENT));
-	}
-	
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#fireMatrixTransformChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireMatrixTransformChanged(ChangeEvent e) {
-		for (MatrixTransformListener l : mListeners) {
-			l.matrixTransformChanged(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#addMatrixTransformListener(edu.columbia.rdf.lib.
+   * bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   */
+  public void addMatrixTransformListener(MatrixTransformListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.rdf.
+   * lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   */
+  public void removeMatrixTransformListener(MatrixTransformListener l) {
+    mListeners.remove(l);
+  }
+
+  /**
+   * Fire matrix transform changed.
+   */
+  public void fireMatrixTransformChanged() {
+    fireMatrixTransformChanged(new ChangeEvent(this, MATRIX_TRANSFORM_CHANGED_EVENT));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#fireMatrixTransformChanged(org.abh.lib.event.
+   * ChangeEvent)
+   */
+  public void fireMatrixTransformChanged(ChangeEvent e) {
+    for (MatrixTransformListener l : mListeners) {
+      l.matrixTransformChanged(e);
+    }
+  }
 }

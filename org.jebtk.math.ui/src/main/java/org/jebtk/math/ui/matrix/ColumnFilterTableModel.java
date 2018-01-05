@@ -34,123 +34,140 @@ import org.jebtk.core.Indexed;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class ColumnFilterTableModel.
  */
 public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
-	
-	/**
-	 * The Constant HEADER.
-	 */
-	private static final String[] HEADER = {"", "Heading"};
 
-	/**
-	 * The use.
-	 */
-	private List<Boolean> use = new ArrayList<Boolean>();
+  /**
+   * The Constant HEADER.
+   */
+  private static final String[] HEADER = { "", "Heading" };
 
-	/**
-	 * The columns.
-	 */
-	private List<Indexed<Integer, String>> mColumns;
+  /**
+   * The use.
+   */
+  private List<Boolean> use = new ArrayList<Boolean>();
 
-	/**
-	 * Instantiates a new column filter table model.
-	 *
-	 * @param columns the columns
-	 */
-	public ColumnFilterTableModel(List<Indexed<Integer, String>> columns) {
+  /**
+   * The columns.
+   */
+  private List<Indexed<Integer, String>> mColumns;
 
-		mColumns = columns;
+  /**
+   * Instantiates a new column filter table model.
+   *
+   * @param columns
+   *          the columns
+   */
+  public ColumnFilterTableModel(List<Indexed<Integer, String>> columns) {
 
-		for (int i = 0; i < columns.size(); ++i) {
-			use.add(true);
-		}
+    mColumns = columns;
 
-		fireDataChanged();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
-	 */
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
-	 */
-	public final int getRowCount() {
-		//System.out.println("row count" + rows.size());
-
-		return mColumns.size();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int column) {
-		return CollectionUtils.asList(HEADER[column]);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public final Object getValueAt(int row, int col) {
-		switch (col) {
-		case 0:
-			return use.get(row);
-		case 1:
-			return mColumns.get(row).getValue();
-		}
-
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	public final boolean getIsCellEditable(int row, int col) {
-       return col == 0;
+    for (int i = 0; i < columns.size(); ++i) {
+      use.add(true);
     }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#setValueAt(int, int, java.lang.Object)
-	 */
-	@Override
-	public final void setValueAt(int row, int col, Object value) {
-		if (col != 0) {
-			return;
-		}
+    fireDataChanged();
+  }
 
-		use.set(row, (Boolean)value);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
+   */
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-		fireDataChanged();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
+   */
+  public final int getRowCount() {
+    // System.out.println("row count" + rows.size());
+
+    return mColumns.size();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int column) {
+    return CollectionUtils.asList(HEADER[column]);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public final Object getValueAt(int row, int col) {
+    switch (col) {
+    case 0:
+      return use.get(row);
+    case 1:
+      return mColumns.get(row).getValue();
     }
 
-	/**
-	 * Gets the indexed value from the table.
-	 *
-	 * @param index the index
-	 * @return the indexed value
-	 */
-	public final Indexed<Integer, String> get(int index) {
-		return mColumns.get(index);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#clear()
-	 */
-	@Override
-	public final void clear() {
-		for (int i = 0; i < use.size(); ++i) {
-			use.set(i, false);
-		}
+    return null;
+  }
 
-		fireDataChanged();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  public final boolean getIsCellEditable(int row, int col) {
+    return col == 0;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#setValueAt(int, int,
+   * java.lang.Object)
+   */
+  @Override
+  public final void setValueAt(int row, int col, Object value) {
+    if (col != 0) {
+      return;
     }
+
+    use.set(row, (Boolean) value);
+
+    fireDataChanged();
+  }
+
+  /**
+   * Gets the indexed value from the table.
+   *
+   * @param index
+   *          the index
+   * @return the indexed value
+   */
+  public final Indexed<Integer, String> get(int index) {
+    return mColumns.get(index);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#clear()
+   */
+  @Override
+  public final void clear() {
+    for (int i = 0; i < use.size(); ++i) {
+      use.set(i, false);
+    }
+
+    fireDataChanged();
+  }
 }

@@ -34,18 +34,20 @@ import org.jebtk.modern.io.GuiFileExtFilter;
  * The Class AllMatrixGroupGuiFileFilter.
  */
 public class AllMatrixGroupGuiFileFilter extends GuiFileExtFilter {
-	/**
-	 * Instantiates a new all matrix group gui file filter.
-	 */
-	public AllMatrixGroupGuiFileFilter() {
-		super("grpj", "grpx", "groups", "mgrp2");
-	}
+  /**
+   * Instantiates a new all matrix group gui file filter.
+   */
+  public AllMatrixGroupGuiFileFilter() {
+    super("grpj", "grpx", "groups", "mgrp2");
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "All Matrix Group Files (*grpj;*grpx;*.groups;*.mgrp2)";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "All Matrix Group Files (*grpj;*grpx;*.groups;*.mgrp2)";
+  }
 }

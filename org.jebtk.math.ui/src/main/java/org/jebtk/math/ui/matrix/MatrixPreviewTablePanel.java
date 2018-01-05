@@ -35,73 +35,71 @@ import org.jebtk.modern.table.EmptyTableModel;
 import org.jebtk.modern.table.ModernSpreadsheet;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MatrixPreviewTablePanel.
  */
 public class MatrixPreviewTablePanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The table.
-	 */
-	private ModernSpreadsheet table = new ModernSpreadsheet();
-	
-	/**
-	 * The scroll pane.
-	 */
-	private ModernScrollPane scrollPane;
 
-	/**
-	 * The member matrix.
-	 */
-	private DataFrame mMatrix;
-	
-	/**
-	 * Instantiates a new matrix preview table panel.
-	 *
-	 * @param matrix the matrix
-	 */
-	public MatrixPreviewTablePanel(DataFrame matrix) {
-		mMatrix = matrix;
-		
-		//table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		//table.setAutoCreateRowSorter(true);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		scrollPane = new ModernScrollPane(table);
-		//scrollPane.getViewport().setBackground(Color.WHITE);
-		//scrollPane.showClipBorder(true);
-		//scrollPane.getClip().setOpaque(true);
-		//scrollPane.getClip().setBackground(Color.WHITE);
+  /**
+   * The table.
+   */
+  private ModernSpreadsheet table = new ModernSpreadsheet();
 
-		add(scrollPane, BorderLayout.CENTER);
+  /**
+   * The scroll pane.
+   */
+  private ModernScrollPane scrollPane;
 
-		EditableMatrixTableModel model = new EditableMatrixTableModel(matrix);
+  /**
+   * The member matrix.
+   */
+  private DataFrame mMatrix;
 
-		table.setModel(model);
-	}
+  /**
+   * Instantiates a new matrix preview table panel.
+   *
+   * @param matrix
+   *          the matrix
+   */
+  public MatrixPreviewTablePanel(DataFrame matrix) {
+    mMatrix = matrix;
 
+    // table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    // table.setAutoCreateRowSorter(true);
 
-	/**
-	 * Remove displayed rows.
-	 */
-	public final void clear() {
-		// use and empty table model to display nothing
-		table.setModel(new EmptyTableModel());
-	}
+    scrollPane = new ModernScrollPane(table);
+    // scrollPane.getViewport().setBackground(Color.WHITE);
+    // scrollPane.showClipBorder(true);
+    // scrollPane.getClip().setOpaque(true);
+    // scrollPane.getClip().setBackground(Color.WHITE);
 
+    add(scrollPane, BorderLayout.CENTER);
 
-	/**
-	 * Gets the matrix.
-	 *
-	 * @return the matrix
-	 */
-	public DataFrame getMatrix() {
-		return mMatrix;
-	}
+    EditableMatrixTableModel model = new EditableMatrixTableModel(matrix);
+
+    table.setModel(model);
+  }
+
+  /**
+   * Remove displayed rows.
+   */
+  public final void clear() {
+    // use and empty table model to display nothing
+    table.setModel(new EmptyTableModel());
+  }
+
+  /**
+   * Gets the matrix.
+   *
+   * @return the matrix
+   */
+  public DataFrame getMatrix() {
+    return mMatrix;
+  }
 }

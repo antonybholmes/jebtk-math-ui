@@ -40,79 +40,83 @@ import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class StdDevFilterDialog.
  */
 public class SimpleFilterDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member min field.
-	 */
-	private ModernTextField mMinField = new ModernNumericalTextField("1.5");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new std dev filter dialog.
-	 *
-	 * @param parent the parent
-	 * @param name the name
-	 * @param min the min
-	 */
-	public SimpleFilterDialog(ModernWindow parent, 
-			String name,
-			double min) {
-		super(parent);
-		
-		setTitle("Filter");
+  /**
+   * The member min field.
+   */
+  private ModernTextField mMinField = new ModernNumericalTextField("1.5");
 
-		setup(min);
+  /**
+   * Instantiates a new std dev filter dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param name
+   *          the name
+   * @param min
+   *          the min
+   */
+  public SimpleFilterDialog(ModernWindow parent, String name, double min) {
+    super(parent);
 
-		createUi(name);
+    setTitle("Filter");
 
-	}
+    setup(min);
 
-	/**
-	 * Sets the up.
-	 *
-	 * @param min the new up
-	 */
-	private void setup(double min) {
-		mMinField.setText(Double.toString(min));
-		
-		setSize(new Dimension(360, 160));
-		
-		UI.centerWindowToScreen(this);
-	}
+    createUi(name);
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param name the name
-	 */
-	private final void createUi(String name) {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
+  }
 
-		Box box = HBox.create();
-		
-		box.add(new ModernAutoSizeLabel(name));
-		box.add(Box.createHorizontalGlue());
-		box.add(new ModernTextBorderPanel(mMinField, 100));
+  /**
+   * Sets the up.
+   *
+   * @param min
+   *          the new up
+   */
+  private void setup(double min) {
+    mMinField.setText(Double.toString(min));
 
-		setDialogCardContent(box);
-	}
+    setSize(new Dimension(360, 160));
 
-	/**
-	 * Gets the min.
-	 *
-	 * @return the min
-	 */
-	public double getMin() {
-		return Double.parseDouble(mMinField.getText());
-	}
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   *
+   * @param name
+   *          the name
+   */
+  private final void createUi(String name) {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    Box box = HBox.create();
+
+    box.add(new ModernAutoSizeLabel(name));
+    box.add(Box.createHorizontalGlue());
+    box.add(new ModernTextBorderPanel(mMinField, 100));
+
+    setDialogCardContent(box);
+  }
+
+  /**
+   * Gets the min.
+   *
+   * @return the min
+   */
+  public double getMin() {
+    return Double.parseDouble(mMinField.getText());
+  }
 }

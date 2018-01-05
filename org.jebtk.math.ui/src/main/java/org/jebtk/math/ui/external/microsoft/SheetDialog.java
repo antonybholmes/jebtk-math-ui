@@ -41,74 +41,70 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class SheetDialog.
  */
 public class SheetDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member sheet combo.
-	 */
-	private ModernComboBox mSheetCombo = new ModernComboBox();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new sheet dialog.
-	 *
-	 * @param parent the parent
-	 * @param file the file
-	 */
-	public SheetDialog(ModernWindow parent, Path file) {
-		super(parent);
-		
-		setTitle("Select Sheet");
+  /**
+   * The member sheet combo.
+   */
+  private ModernComboBox mSheetCombo = new ModernComboBox();
 
-		try {
-			List<String> names = Excel.getSheetNames(file);
-			
-			for (String name : names) {
-				mSheetCombo.addMenuItem(name);
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		mSheetCombo.setSelectedIndex(0);
+  /**
+   * Instantiates a new sheet dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param file
+   *          the file
+   */
+  public SheetDialog(ModernWindow parent, Path file) {
+    super(parent);
 
-		
-		int[] rows = {ModernWidget.WIDGET_HEIGHT};
-		int[] columns = {100, 400, ModernWidget.WIDGET_HEIGHT};
-		
-		MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING, ModernWidget.PADDING);
+    setTitle("Select Sheet");
 
-		panel.add(new ModernAutoSizeLabel("Sheet"));
-		panel.add(mSheetCombo);
-		
-		
-		setContent(panel);
+    try {
+      List<String> names = Excel.getSheetNames(file);
 
+      for (String name : names) {
+        mSheetCombo.addMenuItem(name);
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
-		setSize(320, 240);
-		
-		UI.centerWindowToScreen(this);
-	}
+    mSheetCombo.setSelectedIndex(0);
 
-	/**
-	 * Gets the sheet.
-	 *
-	 * @return the sheet
-	 */
-	public String getSheet() {
-		return mSheetCombo.getText();
-	}
+    int[] rows = { ModernWidget.WIDGET_HEIGHT };
+    int[] columns = { 100, 400, ModernWidget.WIDGET_HEIGHT };
+
+    MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING, ModernWidget.PADDING);
+
+    panel.add(new ModernAutoSizeLabel("Sheet"));
+    panel.add(mSheetCombo);
+
+    setContent(panel);
+
+    setSize(320, 240);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Gets the sheet.
+   *
+   * @return the sheet
+   */
+  public String getSheet() {
+    return mSheetCombo.getText();
+  }
 }

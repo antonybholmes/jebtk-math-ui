@@ -37,92 +37,96 @@ import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MinMaxThresholdDialog.
  */
 public class MinMaxThresholdDialog extends ModernDialogTaskWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The min field.
-	 */
-	private ModernCompactSpinner mMinField = new ModernCompactSpinner(1);
-	
-	/**
-	 * The max field.
-	 */
-	private ModernCompactSpinner mMaxField = new ModernCompactSpinner(100000);
+  /**
+   * The min field.
+   */
+  private ModernCompactSpinner mMinField = new ModernCompactSpinner(1);
 
-	/**
-	 * Instantiates a new min max threshold dialog.
-	 *
-	 * @param parent the parent
-	 * @param min the min
-	 * @param max the max
-	 */
-	public MinMaxThresholdDialog(ModernWindow parent, double min, double max) {
-		super(parent);
-		
-		setTitle("Min/Max Threshold");
-		
-		setup(min, max);
+  /**
+   * The max field.
+   */
+  private ModernCompactSpinner mMaxField = new ModernCompactSpinner(100000);
 
-		createUi();
-	}
+  /**
+   * Instantiates a new min max threshold dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   */
+  public MinMaxThresholdDialog(ModernWindow parent, double min, double max) {
+    super(parent);
 
-	/**
-	 * Setup.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 */
-	private void setup(double min, double max) {
-		mMinField.setText(Double.toString(min));
-		mMaxField.setText(Double.toString(max));
-		
-		setSize(320, 200);
-		
-		UI.centerWindowToScreen(this);
-	}
+    setTitle("Min/Max Threshold");
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
+    setup(min, max);
 
-		Box box = VBox.create();
-		
-		
-		box.add(new HExpandBox("Minimum", mMinField));
-		box.add(UI.createVGap(5));
-		box.add(new HExpandBox("Maximum", mMaxField));
-		
-		setDialogCardContent(box);
-	}
+    createUi();
+  }
 
-	/**
-	 * Gets the min.
-	 *
-	 * @return the min
-	 */
-	public double getMin() {
-		return mMinField.getValue();
-	}
-	
-	/**
-	 * Gets the max.
-	 *
-	 * @return the max
-	 */
-	public double getMax() {
-		return mMaxField.getValue();
-	}
+  /**
+   * Setup.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   */
+  private void setup(double min, double max) {
+    mMinField.setText(Double.toString(min));
+    mMaxField.setText(Double.toString(max));
+
+    setSize(320, 200);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    Box box = VBox.create();
+
+    box.add(new HExpandBox("Minimum", mMinField));
+    box.add(UI.createVGap(5));
+    box.add(new HExpandBox("Maximum", mMaxField));
+
+    setDialogCardContent(box);
+  }
+
+  /**
+   * Gets the min.
+   *
+   * @return the min
+   */
+  public double getMin() {
+    return mMinField.getValue();
+  }
+
+  /**
+   * Gets the max.
+   *
+   * @return the max
+   */
+  public double getMax() {
+    return mMaxField.getValue();
+  }
 }

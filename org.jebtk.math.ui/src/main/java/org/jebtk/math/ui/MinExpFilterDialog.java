@@ -34,95 +34,97 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MinExpFilterDialog.
  */
 public class MinExpFilterDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The min exp field.
-	 */
-	private ModernCompactSpinner minExpField = 
-			new ModernCompactSpinner(1);
-	
-	/**
-	 * The min samples field.
-	 */
-	private ModernCompactSpinner minSamplesField = 
-			new ModernCompactSpinner(1);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new min exp filter dialog.
-	 *
-	 * @param parent the parent
-	 * @param minExp the min exp
-	 * @param minSamples the min samples
-	 */
-	public MinExpFilterDialog(ModernWindow parent, 
-			double minExp, 
-			int minSamples) {
-		super(parent);
-		
-		setTitle("Expression Filter");
-		
-		setup(minExp, minSamples);
+  /**
+   * The min exp field.
+   */
+  private ModernCompactSpinner minExpField = new ModernCompactSpinner(1);
 
-		createUi();
+  /**
+   * The min samples field.
+   */
+  private ModernCompactSpinner minSamplesField = new ModernCompactSpinner(1);
 
-	}
+  /**
+   * Instantiates a new min exp filter dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param minExp
+   *          the min exp
+   * @param minSamples
+   *          the min samples
+   */
+  public MinExpFilterDialog(ModernWindow parent, double minExp, int minSamples) {
+    super(parent);
 
-	/**
-	 * Setup.
-	 *
-	 * @param minExp the min exp
-	 * @param minSamples the min samples
-	 */
-	private void setup(double minExp, int minSamples) {
-		minExpField.setValue(minExp);
-		minSamplesField.setValue(minSamples);
-		
-		setSize(360, 200);
-		
-		UI.centerWindowToScreen(this);
-	}
+    setTitle("Expression Filter");
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
+    setup(minExp, minSamples);
 
-		VBoxAutoWidth box = new VBoxAutoWidth();
+    createUi();
 
-		box.add(new HExpandBox("Minimum Expression", minExpField));
-		box.add(UI.createVGap(5));
-		box.add(new HExpandBox("Minimum Samples", minSamplesField));
+  }
 
-		setDialogCardContent(box);
-	}
+  /**
+   * Setup.
+   *
+   * @param minExp
+   *          the min exp
+   * @param minSamples
+   *          the min samples
+   */
+  private void setup(double minExp, int minSamples) {
+    minExpField.setValue(minExp);
+    minSamplesField.setValue(minSamples);
 
-	/**
-	 * Gets the min exp.
-	 *
-	 * @return the min exp
-	 */
-	public double getMinExp() {
-		return minExpField.getValue();
-	}
-	
-	/**
-	 * Gets the min samples.
-	 *
-	 * @return the min samples
-	 */
-	public int getMinSamples() {
-		return minSamplesField.getIntValue();
-	}
+    setSize(360, 200);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    VBoxAutoWidth box = new VBoxAutoWidth();
+
+    box.add(new HExpandBox("Minimum Expression", minExpField));
+    box.add(UI.createVGap(5));
+    box.add(new HExpandBox("Minimum Samples", minSamplesField));
+
+    setDialogCardContent(box);
+  }
+
+  /**
+   * Gets the min exp.
+   *
+   * @return the min exp
+   */
+  public double getMinExp() {
+    return minExpField.getValue();
+  }
+
+  /**
+   * Gets the min samples.
+   *
+   * @return the min samples
+   */
+  public int getMinSamples() {
+    return minSamplesField.getIntValue();
+  }
 }

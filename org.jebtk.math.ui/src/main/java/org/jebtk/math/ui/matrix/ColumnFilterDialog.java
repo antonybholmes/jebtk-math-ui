@@ -63,283 +63,285 @@ import org.jebtk.modern.table.ModernTableCheckboxCellEditor;
 import org.jebtk.modern.table.ModernTableCheckboxCellRenderer;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class ColumnFilterDialog.
  */
 public class ColumnFilterDialog extends ModernDialogWindow implements ModernClickListener {
-	
-	/**
-	 * The Constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The Constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member model.
-	 */
-	private ColumnFilterTableModel mModel;
+  /**
+   * The member model.
+   */
+  private ColumnFilterTableModel mModel;
 
-	/**
-	 * The table.
-	 */
-	private ModernRowTable mTable = new ModernSimpleTable();
+  /**
+   * The table.
+   */
+  private ModernRowTable mTable = new ModernSimpleTable();
 
-	/**
-	 * The scroll pane.
-	 */
-	private ModernScrollPane scrollPane;
+  /**
+   * The scroll pane.
+   */
+  private ModernScrollPane scrollPane;
 
-	/**
-	 * The member columns.
-	 */
-	private List<Indexed<Integer, String>> mColumns;
-	
-	/**
-	 * The toggle button.
-	 */
-	private ModernButton toggleButton = new ModernDialogFlatButton("Toggle");
-	
-	/**
-	 * The select all button.
-	 */
-	private ModernButton selectAllButton = new ModernDialogFlatButton("Select All");
-	
-	/**
-	 * The unselect all button.
-	 */
-	private ModernButton unselectAllButton = new ModernDialogFlatButton("Unselect All");
-	
-	/**
-	 * The member load button.
-	 */
-	private ModernButton mLoadButton = 
-			new ModernDialogFlatButton("Load...", 
-					UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
+  /**
+   * The member columns.
+   */
+  private List<Indexed<Integer, String>> mColumns;
 
+  /**
+   * The toggle button.
+   */
+  private ModernButton toggleButton = new ModernDialogFlatButton("Toggle");
 
-	/**
-	 * The member working directory.
-	 */
-	private Path mPwd;
+  /**
+   * The select all button.
+   */
+  private ModernButton selectAllButton = new ModernDialogFlatButton("Select All");
 
+  /**
+   * The unselect all button.
+   */
+  private ModernButton unselectAllButton = new ModernDialogFlatButton("Unselect All");
 
-	/**
-	 * The member name map.
-	 */
-	private Map<String, Integer> mNameMap;
+  /**
+   * The member load button.
+   */
+  private ModernButton mLoadButton = new ModernDialogFlatButton("Load...",
+      UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
 
+  /**
+   * The member working directory.
+   */
+  private Path mPwd;
 
-	/**
-	 * Instantiates a new column filter dialog.
-	 *
-	 * @param parent the parent
-	 * @param ids the ids
-	 * @param workingDirectory the working directory
-	 */
-	public ColumnFilterDialog(ModernWindow parent,
-			List<Indexed<Integer, String>> ids,
-			Path workingDirectory) {
-		super(parent);
-		
-		mColumns = ids;
-		
-		mNameMap = Indexed.mapValuesToIndex(ids);
-		
-		mPwd = workingDirectory;
-		
-		setup();
-	}
+  /**
+   * The member name map.
+   */
+  private Map<String, Integer> mNameMap;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setTitle("Column Filter");
+  /**
+   * Instantiates a new column filter dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param ids
+   *          the ids
+   * @param workingDirectory
+   *          the working directory
+   */
+  public ColumnFilterDialog(ModernWindow parent, List<Indexed<Integer, String>> ids, Path workingDirectory) {
+    super(parent);
 
-		mModel = new ColumnFilterTableModel(mColumns);
-		
-		
-		mTable.setShowHeader(false);
-		mTable.setModel(mModel);
-		mTable.getColumnModel().setWidth(0, 24);
-		mTable.getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
-		mTable.getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
-		mTable.getColumnModel().setWidth(1, 500);
+    mColumns = ids;
 
-		ModernPaddedPanel content = new ModernPaddedPanel();
+    mNameMap = Indexed.mapValuesToIndex(ids);
 
-		scrollPane = new ModernScrollPane(mTable);
-		//scrollPane.setBorder(ModernTheme.getInstance().getClass("widget").getBorder("line"));
-		//scrollPane.setBorder(ModernWidget.LINE_BORDER);
-		//scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
-		//scrollPane.getViewport().setBackground(Color.WHITE);
+    mPwd = workingDirectory;
 
-		content.setBody(scrollPane);
-		
-		Box box = HBox.create();
-		
-		box.add(mLoadButton);
-		box.add(ModernPanel.createHGap());
-		box.add(toggleButton);
-		box.add(ModernPanel.createHGap());
-		box.add(selectAllButton);
-		box.add(ModernPanel.createHGap());
-		box.add(unselectAllButton);
-		
-		box.setBorder(ModernPanel.TOP_BORDER);
-		
-		content.setFooter(box);
-		
-		setContent(content);
+    setup();
+  }
 
-		Box buttonPanel = new ButtonsBox();
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setTitle("Column Filter");
 
-		ModernButtonWidget button = new ModernDialogButton(UI.BUTTON_OK);
-		button.addClickListener(this);
-		buttonPanel.add(button);
+    mModel = new ColumnFilterTableModel(mColumns);
 
-		buttonPanel.add(ModernPanel.createHGap());
+    mTable.setShowHeader(false);
+    mTable.setModel(mModel);
+    mTable.getColumnModel().setWidth(0, 24);
+    mTable.getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
+    mTable.getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
+    mTable.getColumnModel().setWidth(1, 500);
 
-		button = new ModernDialogButton(UI.BUTTON_CANCEL);
-		button.addClickListener(this);
-		buttonPanel.add(button);
+    ModernPaddedPanel content = new ModernPaddedPanel();
 
-		setButtons(buttonPanel);
+    scrollPane = new ModernScrollPane(mTable);
+    // scrollPane.setBorder(ModernTheme.getInstance().getClass("widget").getBorder("line"));
+    // scrollPane.setBorder(ModernWidget.LINE_BORDER);
+    // scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
+    // scrollPane.getViewport().setBackground(Color.WHITE);
 
-		toggleButton.addClickListener(this);
-		selectAllButton.addClickListener(this);
-		unselectAllButton.addClickListener(this);
-		mLoadButton.addClickListener(this);
-		
-		setSize(640, 480);
-		
-		UI.centerWindowToScreen(this);
-	}
+    content.setBody(scrollPane);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(toggleButton)) {
-			toggle();
-		} else if (e.getSource().equals(selectAllButton)) {
-			checkAll(true);
-		} else if (e.getSource().equals(unselectAllButton)) {
-			checkAll(false);
-		} else if (e.getSource().equals(mLoadButton)) {
-			try {
-				importIds();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		} else if (e.getMessage().equals(UI.BUTTON_OK)) {
-			setStatus(ModernDialogStatus.OK);
-			
-			close();
-		} else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
-			close();
-		} else {
-			// do nothing
-		}
-	}
-	
-	/**
-	 * Import ids.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void importIds() throws IOException {
+    Box box = HBox.create();
 
-		Path file = FileDialog.open(mParent).all().getFile(mPwd);
-		
-		if (file == null) {
-			return;
-		}
+    box.add(mLoadButton);
+    box.add(ModernPanel.createHGap());
+    box.add(toggleButton);
+    box.add(ModernPanel.createHGap());
+    box.add(selectAllButton);
+    box.add(ModernPanel.createHGap());
+    box.add(unselectAllButton);
 
-        importIds(file);
-	}
+    box.setBorder(ModernPanel.TOP_BORDER);
 
-	/**
-	 * Import ids.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void importIds(Path file) throws IOException {
-		mModel.clear();	
-		
-        List<String> ids = new ArrayList<String>();
+    content.setFooter(box);
 
-		BufferedReader reader = FileUtils.newBufferedReader(file);
+    setContent(content);
 
-		String line;
+    Box buttonPanel = new ButtonsBox();
 
-		try {
-			// Skip header
-			reader.readLine();
-			
-    		while ((line = reader.readLine()) != null) {
-    			if (Io.isEmptyLine(line)) {
-    				continue;
-    			}
+    ModernButtonWidget button = new ModernDialogButton(UI.BUTTON_OK);
+    button.addClickListener(this);
+    buttonPanel.add(button);
 
-    			List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+    buttonPanel.add(ModernPanel.createHGap());
 
-    			ids.add(tokens.get(0));
-    		}
-		} finally {
-			reader.close();
-		}
+    button = new ModernDialogButton(UI.BUTTON_CANCEL);
+    button.addClickListener(this);
+    buttonPanel.add(button);
 
-		for (String id : ids) {
-			Integer index = mNameMap.get(id);
-			
-			if (index != null) {
-				mModel.setValueAt(index, 0, true);
-			}
-		}
-	}
-	
-	/**
-	 * Toggle.
-	 */
-	private void toggle() {
-		for (int i : mTable.getRowModel().getSelectionModel()) {
-			mTable.setValueAt(i, 0, !(Boolean)mTable.getValueAt(i, 0));
-		}
-	}
-	
-	/**
-	 * Check all.
-	 *
-	 * @param value the value
-	 */
-	private void checkAll(boolean value) {
-		
-		for (int i = 0; i < mTable.getRowCount(); ++i) {
-			mTable.setValueAt(i, 0, value);
-		}
-	}
+    setButtons(buttonPanel);
 
-	/**
-	 * Get the list of selected columns.
-	 *
-	 * @return the columns
-	 */
-	public List<Indexed<Integer, String>> getColumns() {
+    toggleButton.addClickListener(this);
+    selectAllButton.addClickListener(this);
+    unselectAllButton.addClickListener(this);
+    mLoadButton.addClickListener(this);
 
-		List<Indexed<Integer, String>> ids = new ArrayList<Indexed<Integer, String>>();
+    setSize(640, 480);
 
-		for (int i = 0; i < mModel.getRowCount(); ++i) {
-			if (!(Boolean)mTable.getValueAt(i, 0)) {
-				continue;
-			}
-			
-			ids.add(mModel.get(i));
-		}
+    UI.centerWindowToScreen(this);
+  }
 
-		return ids;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
+   * event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(toggleButton)) {
+      toggle();
+    } else if (e.getSource().equals(selectAllButton)) {
+      checkAll(true);
+    } else if (e.getSource().equals(unselectAllButton)) {
+      checkAll(false);
+    } else if (e.getSource().equals(mLoadButton)) {
+      try {
+        importIds();
+      } catch (IOException e1) {
+        e1.printStackTrace();
+      }
+    } else if (e.getMessage().equals(UI.BUTTON_OK)) {
+      setStatus(ModernDialogStatus.OK);
+
+      close();
+    } else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
+      close();
+    } else {
+      // do nothing
+    }
+  }
+
+  /**
+   * Import ids.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void importIds() throws IOException {
+
+    Path file = FileDialog.open(mParent).all().getFile(mPwd);
+
+    if (file == null) {
+      return;
+    }
+
+    importIds(file);
+  }
+
+  /**
+   * Import ids.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void importIds(Path file) throws IOException {
+    mModel.clear();
+
+    List<String> ids = new ArrayList<String>();
+
+    BufferedReader reader = FileUtils.newBufferedReader(file);
+
+    String line;
+
+    try {
+      // Skip header
+      reader.readLine();
+
+      while ((line = reader.readLine()) != null) {
+        if (Io.isEmptyLine(line)) {
+          continue;
+        }
+
+        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+
+        ids.add(tokens.get(0));
+      }
+    } finally {
+      reader.close();
+    }
+
+    for (String id : ids) {
+      Integer index = mNameMap.get(id);
+
+      if (index != null) {
+        mModel.setValueAt(index, 0, true);
+      }
+    }
+  }
+
+  /**
+   * Toggle.
+   */
+  private void toggle() {
+    for (int i : mTable.getRowModel().getSelectionModel()) {
+      mTable.setValueAt(i, 0, !(Boolean) mTable.getValueAt(i, 0));
+    }
+  }
+
+  /**
+   * Check all.
+   *
+   * @param value
+   *          the value
+   */
+  private void checkAll(boolean value) {
+
+    for (int i = 0; i < mTable.getRowCount(); ++i) {
+      mTable.setValueAt(i, 0, value);
+    }
+  }
+
+  /**
+   * Get the list of selected columns.
+   *
+   * @return the columns
+   */
+  public List<Indexed<Integer, String>> getColumns() {
+
+    List<Indexed<Integer, String>> ids = new ArrayList<Indexed<Integer, String>>();
+
+    for (int i = 0; i < mModel.getRowCount(); ++i) {
+      if (!(Boolean) mTable.getValueAt(i, 0)) {
+        continue;
+      }
+
+      ids.add(mModel.get(i));
+    }
+
+    return ids;
+  }
 }

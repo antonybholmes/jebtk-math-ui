@@ -29,27 +29,28 @@ package org.jebtk.math.ui.external.microsoft;
 
 import org.jebtk.modern.io.GuiFileExtFilter;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class XlsxGuiFileFilter.
  */
 public class ExcelGuiFileFilter extends GuiFileExtFilter {
-	
-	/** The Constant INSTANCE. */
-	public static final GuiFileExtFilter INSTANCE = new ExcelGuiFileFilter();
 
-	/**
-	 * Instantiates a new xlsx gui file filter.
-	 */
-	public ExcelGuiFileFilter() {
-		super("xls", "xlsx");
-	}
+  /** The Constant INSTANCE. */
+  public static final GuiFileExtFilter INSTANCE = new ExcelGuiFileFilter();
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Excel Files (*.xls;*.xlsx)";
-	}
+  /**
+   * Instantiates a new xlsx gui file filter.
+   */
+  public ExcelGuiFileFilter() {
+    super("xls", "xlsx");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Excel Files (*.xls;*.xlsx)";
+  }
 }

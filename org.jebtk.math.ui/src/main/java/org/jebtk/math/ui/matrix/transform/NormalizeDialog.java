@@ -49,128 +49,133 @@ import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class NormalizeDialog.
  */
 public class NormalizeDialog extends ModernDialogWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The ok button.
-	 */
-	private ModernButton okButton = 
-			new ModernDialogButton(UI.BUTTON_OK);
-	
-	/**
-	 * The close button.
-	 */
-	private ModernButton closeButton = 
-			new ModernDialogButton(UI.BUTTON_CANCEL);
 
-	/**
-	 * The min field.
-	 */
-	private ModernTextField minField = new ModernNumericalTextField("-4");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new normalize dialog.
-	 *
-	 * @param parent the parent
-	 * @param scale the scale
-	 */
-	public NormalizeDialog(ModernWindow parent, double scale) {
-		super(parent);
-		
-		setTitle("Normalize");
+  /**
+   * The ok button.
+   */
+  private ModernButton okButton = new ModernDialogButton(UI.BUTTON_OK);
 
-		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+  /**
+   * The close button.
+   */
+  private ModernButton closeButton = new ModernDialogButton(UI.BUTTON_CANCEL);
 
-		setup(scale);
+  /**
+   * The min field.
+   */
+  private ModernTextField minField = new ModernNumericalTextField("-4");
 
-		createUi();
-	}
+  /**
+   * Instantiates a new normalize dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param scale
+   *          the scale
+   */
+  public NormalizeDialog(ModernWindow parent, double scale) {
+    super(parent);
 
-	/**
-	 * Sets the up.
-	 *
-	 * @param scale the new up
-	 */
-	private void setup(double scale) {
-		okButton.addClickListener(this);
-		closeButton.addClickListener(this);
-		
-		minField.setText(scale);
+    setTitle("Normalize");
 
-		setSize(new Dimension(320, 160));
-		
-		UI.centerWindowToScreen(this);
-	}
+    this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
+    setup(scale);
 
-		//ModernPanel content = new ModernDialogPanel();
+    createUi();
+  }
 
-		int[] rows = {ModernWidget.WIDGET_HEIGHT};
-		int[] cols = {200, 100};
-		
-		MatrixPanel matrixPanel = 
-				new MatrixPanel(rows, cols, ModernWidget.PADDING, ModernWidget.PADDING);
+  /**
+   * Sets the up.
+   *
+   * @param scale
+   *          the new up
+   */
+  private void setup(double scale) {
+    okButton.addClickListener(this);
+    closeButton.addClickListener(this);
 
-		matrixPanel.add(new ModernAutoSizeLabel("Scale"));
-		matrixPanel.add(new ModernTextBorderPanel(minField));
+    minField.setText(scale);
 
-		//content.add(matrixPanel, BorderLayout.CENTER);
+    setSize(new Dimension(320, 160));
 
+    UI.centerWindowToScreen(this);
+  }
 
-		//JPanel buttonPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
 
-		//importButton.setCanvasSize(new Dimension(100, ModernTheme.getInstance().getClass("widget").getInt("height")));
-		//exportButton.setCanvasSize(new Dimension(100, ModernTheme.getInstance().getClass("widget").getInt("height")));
+    // ModernPanel content = new ModernDialogPanel();
 
-		//buttonPanel.add(importButton);
-		//buttonPanel.add(exportButton);
+    int[] rows = { ModernWidget.WIDGET_HEIGHT };
+    int[] cols = { 200, 100 };
 
-		//panel.add(buttonPanel, BorderLayout.PAGE_END);
+    MatrixPanel matrixPanel = new MatrixPanel(rows, cols, ModernWidget.PADDING, ModernWidget.PADDING);
 
+    matrixPanel.add(new ModernAutoSizeLabel("Scale"));
+    matrixPanel.add(new ModernTextBorderPanel(minField));
 
-		setContent(matrixPanel);
+    // content.add(matrixPanel, BorderLayout.CENTER);
 
-		Box buttonPanel = new ButtonsBox();
+    // JPanel buttonPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
 
-		buttonPanel.add(okButton);
-		buttonPanel.add(ModernPanel.createHGap());
-		buttonPanel.add(closeButton);
-	
-		setButtons(buttonPanel);
-	}
+    // importButton.setCanvasSize(new Dimension(100,
+    // ModernTheme.getInstance().getClass("widget").getInt("height")));
+    // exportButton.setCanvasSize(new Dimension(100,
+    // ModernTheme.getInstance().getClass("widget").getInt("height")));
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.BUTTON_OK)) {
-			setStatus(ModernDialogStatus.OK);
-		}
-		
-		close();
-	}
+    // buttonPanel.add(importButton);
+    // buttonPanel.add(exportButton);
 
-	/**
-	 * Gets the scale.
-	 *
-	 * @return the scale
-	 */
-	public double getScale() {
-		return Double.parseDouble(minField.getText());
-	}
+    // panel.add(buttonPanel, BorderLayout.PAGE_END);
+
+    setContent(matrixPanel);
+
+    Box buttonPanel = new ButtonsBox();
+
+    buttonPanel.add(okButton);
+    buttonPanel.add(ModernPanel.createHGap());
+    buttonPanel.add(closeButton);
+
+    setButtons(buttonPanel);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
+   * event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.BUTTON_OK)) {
+      setStatus(ModernDialogStatus.OK);
+    }
+
+    close();
+  }
+
+  /**
+   * Gets the scale.
+   *
+   * @return the scale
+   */
+  public double getScale() {
+    return Double.parseDouble(minField.getText());
+  }
 }

@@ -39,147 +39,161 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class MatrixTransform implements MatrixTransformEventProducer {
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
-	
-	/**
-	 * The member input matrix.
-	 */
-	protected DataFrame mMatrix;
-	
-	/**
-	 * The member description.
-	 */
-	private String mDescription;
-	
-	/**
-	 * The member parent.
-	 */
-	protected ModernWindow mParent;
-	
-	/**
-	 * The listeners.
-	 */
-	private MatrixTransformEventListeners mListeners =
-			new MatrixTransformEventListeners();
 
-	/**
-	 * Instantiates a new matrix transform.
-	 *
-	 * @param parent the parent
-	 * @param name the name
-	 * @param inputMatrix the input matrix
-	 */
-	public MatrixTransform(ModernWindow parent,
-			String name, 
-			DataFrame inputMatrix) {
-		this(parent, name, name, inputMatrix);
-	}
-	
-	/**
-	 * Instantiates a new matrix transform.
-	 *
-	 * @param parent the parent
-	 * @param name the name
-	 * @param description the description
-	 * @param inputMatrix the input matrix
-	 */
-	public MatrixTransform(ModernWindow parent,
-			String name, 
-			String description, 
-			DataFrame inputMatrix) {
-		mParent = parent;
-		mName = name;
-		mDescription = description;
-		mMatrix = inputMatrix;
-	}
-	
-	/**
-	 * Sets the matrix.
-	 *
-	 * @param inputMatrix the new matrix
-	 */
-	public void setMatrix(DataFrame inputMatrix) {
-		mMatrix = inputMatrix;
-	}
-	
-	/**
-	 * Gets the matrix.
-	 *
-	 * @return the matrix
-	 */
-	public DataFrame getMatrix() {
-		return mMatrix;
-	}
-	
-	/**
-	 * Gets the parent.
-	 *
-	 * @return the parent
-	 */
-	public ModernWindow getParent() {
-		return mParent;
-	}
-	
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return mName;
-	}
-	
-	/**
-	 * Gets the description.
-	 *
-	 * @return the description
-	 */
-	public String getDescription() {
-		return mDescription;
-	}
+  /**
+   * The member name.
+   */
+  private String mName;
 
-	/**
-	 * Apply transform via ui action. This action is only called when the
-	 * user clicks on an item to activate it and therefore can be used
-	 * to separate actions that should be automatically run and those that
-	 * should be started only when the user does something.
-	 */
-	public void uiApply() {
-		apply();
-	}
-	
-	/**
-	 * Enable gui editing of function.
-	 */
-	public void apply() {
-		mListeners.fireMatrixTransformChanged();
-	}
+  /**
+   * The member input matrix.
+   */
+  protected DataFrame mMatrix;
 
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#addMatrixTransformListener(edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
-	 */
-	@Override
-	public void addMatrixTransformListener(MatrixTransformListener l) {
-		mListeners.addMatrixTransformListener(l);
-	}
+  /**
+   * The member description.
+   */
+  private String mDescription;
 
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
-	 */
-	@Override
-	public void removeMatrixTransformListener(MatrixTransformListener l) {
-		mListeners.removeMatrixTransformListener(l);
-	}
+  /**
+   * The member parent.
+   */
+  protected ModernWindow mParent;
 
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.MatrixTransformEventProducer#fireMatrixTransformChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireMatrixTransformChanged(ChangeEvent event) {
-		mListeners.fireMatrixTransformChanged(event);
-	}
+  /**
+   * The listeners.
+   */
+  private MatrixTransformEventListeners mListeners = new MatrixTransformEventListeners();
+
+  /**
+   * Instantiates a new matrix transform.
+   *
+   * @param parent
+   *          the parent
+   * @param name
+   *          the name
+   * @param inputMatrix
+   *          the input matrix
+   */
+  public MatrixTransform(ModernWindow parent, String name, DataFrame inputMatrix) {
+    this(parent, name, name, inputMatrix);
+  }
+
+  /**
+   * Instantiates a new matrix transform.
+   *
+   * @param parent
+   *          the parent
+   * @param name
+   *          the name
+   * @param description
+   *          the description
+   * @param inputMatrix
+   *          the input matrix
+   */
+  public MatrixTransform(ModernWindow parent, String name, String description, DataFrame inputMatrix) {
+    mParent = parent;
+    mName = name;
+    mDescription = description;
+    mMatrix = inputMatrix;
+  }
+
+  /**
+   * Sets the matrix.
+   *
+   * @param inputMatrix
+   *          the new matrix
+   */
+  public void setMatrix(DataFrame inputMatrix) {
+    mMatrix = inputMatrix;
+  }
+
+  /**
+   * Gets the matrix.
+   *
+   * @return the matrix
+   */
+  public DataFrame getMatrix() {
+    return mMatrix;
+  }
+
+  /**
+   * Gets the parent.
+   *
+   * @return the parent
+   */
+  public ModernWindow getParent() {
+    return mParent;
+  }
+
+  /**
+   * Gets the name.
+   *
+   * @return the name
+   */
+  public String getName() {
+    return mName;
+  }
+
+  /**
+   * Gets the description.
+   *
+   * @return the description
+   */
+  public String getDescription() {
+    return mDescription;
+  }
+
+  /**
+   * Apply transform via ui action. This action is only called when the user
+   * clicks on an item to activate it and therefore can be used to separate
+   * actions that should be automatically run and those that should be started
+   * only when the user does something.
+   */
+  public void uiApply() {
+    apply();
+  }
+
+  /**
+   * Enable gui editing of function.
+   */
+  public void apply() {
+    mListeners.fireMatrixTransformChanged();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#addMatrixTransformListener(edu.columbia.rdf.lib.
+   * bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   */
+  @Override
+  public void addMatrixTransformListener(MatrixTransformListener l) {
+    mListeners.addMatrixTransformListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.rdf.
+   * lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   */
+  @Override
+  public void removeMatrixTransformListener(MatrixTransformListener l) {
+    mListeners.removeMatrixTransformListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
+   * MatrixTransformEventProducer#fireMatrixTransformChanged(org.abh.lib.event.
+   * ChangeEvent)
+   */
+  @Override
+  public void fireMatrixTransformChanged(ChangeEvent event) {
+    mListeners.fireMatrixTransformChanged(event);
+  }
 }

@@ -37,95 +37,95 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.history.ModernHistoryListBasicCellRenderer;
 import org.jebtk.modern.list.ModernList;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MatrixTransformCellRenderer.
  */
 public class MatrixTransformCellRenderer extends ModernHistoryListBasicCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member text1.
-	 */
-	private String mText1;
-	
-	/**
-	 * The member text2.
-	 */
-	//private String mText2;
-	
-	/**
-	 * The member text3.
-	 */
-	private String mText3;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = 0;
-		int x = PADDING;
-		
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(MaterialService.getInstance().fonts().text());
-		
-		y += UIService.ICON_SIZE_20;
-		
-		g2.drawString(mText1, x, y);
-		
-		y += UIService.ICON_SIZE_20;
-		g2.setFont(MaterialService.getInstance().fonts().subtext());
-		g2.setColor(ALT_TEXT_COLOR);
-		g2.drawString(mText3, x, y);
-		
-		//y += UIResources.ICON_SIZE_20;
-		//g2.drawString(text3, x, y);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.history.ModernHistoryListBasicCellRenderer#getCellRendererComponent(org.abh.common.ui.ui.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
-		
-		super.getCellRendererComponent(list, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row);
-		
-		MatrixTransform t = (MatrixTransform)value;
-		
-		setText(row, t.getName(), t.getDescription(), t.getMatrix());
-		
-		return this;
-	}
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param row the row
-	 * @param name the name
-	 * @param description the description
-	 * @param matrix the matrix
-	 */
-	private void setText(int row, String name, String description, DataFrame matrix) {
-		mText1 = Integer.toString(row + 1) + ". " + name;
-		//mText2 = description;
-		mText3 = new StringBuilder().append(Formatter.number().format((matrix.getRows()))).append(" rows x ").append(Formatter.number().format(matrix.getCols())).append(" columns").toString();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member text1.
+   */
+  private String mText1;
+
+  /**
+   * The member text2.
+   */
+  // private String mText2;
+
+  /**
+   * The member text3.
+   */
+  private String mText3;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = 0;
+    int x = PADDING;
+
+    g2.setColor(TEXT_COLOR);
+    g2.setFont(MaterialService.getInstance().fonts().text());
+
+    y += UIService.ICON_SIZE_20;
+
+    g2.drawString(mText1, x, y);
+
+    y += UIService.ICON_SIZE_20;
+    g2.setFont(MaterialService.getInstance().fonts().subtext());
+    g2.setColor(ALT_TEXT_COLOR);
+    g2.drawString(mText3, x, y);
+
+    // y += UIResources.ICON_SIZE_20;
+    // g2.drawString(text3, x, y);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.history.ModernHistoryListBasicCellRenderer#
+   * getCellRendererComponent(org.abh.common.ui.ui.list.ModernList,
+   * java.lang.Object, boolean, boolean, boolean, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+
+    super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+
+    MatrixTransform t = (MatrixTransform) value;
+
+    setText(row, t.getName(), t.getDescription(), t.getMatrix());
+
+    return this;
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param row
+   *          the row
+   * @param name
+   *          the name
+   * @param description
+   *          the description
+   * @param matrix
+   *          the matrix
+   */
+  private void setText(int row, String name, String description, DataFrame matrix) {
+    mText1 = Integer.toString(row + 1) + ". " + name;
+    // mText2 = description;
+    mText3 = new StringBuilder().append(Formatter.number().format((matrix.getRows()))).append(" rows x ")
+        .append(Formatter.number().format(matrix.getCols())).append(" columns").toString();
+  }
 
 }

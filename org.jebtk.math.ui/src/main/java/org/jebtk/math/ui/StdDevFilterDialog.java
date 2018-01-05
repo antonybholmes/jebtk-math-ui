@@ -29,25 +29,26 @@ package org.jebtk.math.ui;
 
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class StdDevFilterDialog.
  */
 public class StdDevFilterDialog extends SimpleFilterDialog {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new std dev filter dialog.
-	 *
-	 * @param parent the parent
-	 * @param min the min
-	 */
-	public StdDevFilterDialog(ModernWindow parent, double min) {
-		super(parent, "Minimum Standard Deviation", min);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new std dev filter dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param min
+   *          the min
+   */
+  public StdDevFilterDialog(ModernWindow parent, double min) {
+    super(parent, "Minimum Standard Deviation", min);
+  }
 }

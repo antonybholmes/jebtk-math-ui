@@ -30,29 +30,24 @@ package org.jebtk.math.ui;
 import org.jebtk.modern.input.ModernNumericalInputDialog;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MinThresholdDialog.
  */
 public class MinThresholdDialog extends ModernNumericalInputDialog {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new min threshold dialog.
-	 *
-	 * @param parent the parent
-	 * @param min the min
-	 */
-	public MinThresholdDialog(ModernWindow parent, double min) {
-		super(parent, 
-				"Minimum",
-				"Minimum Threshold",
-				min,
-				0,
-				1000,
-				false);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new min threshold dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param min
+   *          the min
+   */
+  public MinThresholdDialog(ModernWindow parent, double min) {
+    super(parent, "Minimum", "Minimum Threshold", min, 0, 1000, false);
+  }
 }

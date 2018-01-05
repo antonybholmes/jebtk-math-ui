@@ -50,185 +50,208 @@ import org.jebtk.modern.dataview.ModernDataCellStyle;
  */
 public class XlsxTableModel extends ExcelTableModel {
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param file the file
-	 * @throws InvalidFormatException the invalid format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public XlsxTableModel(Path file) throws InvalidFormatException, IOException {
-		this(Excel.createXlsxWorkbook(file));
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param file
+   *          the file
+   * @throws InvalidFormatException
+   *           the invalid format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public XlsxTableModel(Path file) throws InvalidFormatException, IOException {
+    this(Excel.createXlsxWorkbook(file));
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param 	workbook the workbook
-	 * @throws 	InvalidFormatException the invalid format exception
-	 * @throws 	IOException Signals that an I/O exception has occurred.
-	 */
-	public XlsxTableModel(XSSFWorkbook workbook) throws InvalidFormatException, IOException {
-		this(workbook, false, 0, false);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param workbook
+   *          the workbook
+   * @throws InvalidFormatException
+   *           the invalid format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public XlsxTableModel(XSSFWorkbook workbook) throws InvalidFormatException, IOException {
+    this(workbook, false, 0, false);
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param file the file
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 * @throws InvalidFormatException the invalid format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public XlsxTableModel(Path file, 
-			boolean hasHeader, 
-			int rowAnnotations) throws InvalidFormatException, IOException {
-		this(file, hasHeader, rowAnnotations, false);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param file
+   *          the file
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   * @throws InvalidFormatException
+   *           the invalid format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public XlsxTableModel(Path file, boolean hasHeader, int rowAnnotations) throws InvalidFormatException, IOException {
+    this(file, hasHeader, rowAnnotations, false);
+  }
 
-	/**
-	 * Create an excel table model.
-	 *
-	 * @param file the file
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 * @param supportColor the support color
-	 * @throws InvalidFormatException the invalid format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public XlsxTableModel(Path file, 
-			boolean hasHeader, 
-			int rowAnnotations,
-			boolean supportColor) throws InvalidFormatException, IOException {
-		this(new XSSFWorkbook(OPCPackage.open(file.toFile())), null, hasHeader, rowAnnotations, supportColor);// new HSSFWorkbook(file));
-	}
+  /**
+   * Create an excel table model.
+   *
+   * @param file
+   *          the file
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   * @param supportColor
+   *          the support color
+   * @throws InvalidFormatException
+   *           the invalid format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public XlsxTableModel(Path file, boolean hasHeader, int rowAnnotations, boolean supportColor)
+      throws InvalidFormatException, IOException {
+    this(new XSSFWorkbook(OPCPackage.open(file.toFile())), null, hasHeader, rowAnnotations, supportColor);// new
+                                                                                                          // HSSFWorkbook(file));
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param file the file
-	 * @param sheet the sheet
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 * @param supportColor the support color
-	 * @throws InvalidFormatException the invalid format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public XlsxTableModel(Path file, 
-			String sheet, 
-			boolean hasHeader, 
-			int rowAnnotations,
-			boolean supportColor) throws InvalidFormatException, IOException {
-		this(new XSSFWorkbook(OPCPackage.open(file.toFile())), sheet, hasHeader, rowAnnotations, supportColor);// new HSSFWorkbook(file));
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param file
+   *          the file
+   * @param sheet
+   *          the sheet
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   * @param supportColor
+   *          the support color
+   * @throws InvalidFormatException
+   *           the invalid format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public XlsxTableModel(Path file, String sheet, boolean hasHeader, int rowAnnotations, boolean supportColor)
+      throws InvalidFormatException, IOException {
+    this(new XSSFWorkbook(OPCPackage.open(file.toFile())), sheet, hasHeader, rowAnnotations, supportColor);// new
+                                                                                                           // HSSFWorkbook(file));
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param workbook the workbook
-	 * @param hasHeader the has header
-	 */
-	public XlsxTableModel(XSSFWorkbook workbook, 
-			boolean hasHeader) {
-		this(workbook, hasHeader, 0, false);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param workbook
+   *          the workbook
+   * @param hasHeader
+   *          the has header
+   */
+  public XlsxTableModel(XSSFWorkbook workbook, boolean hasHeader) {
+    this(workbook, hasHeader, 0, false);
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param workbook the workbook
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 */
-	public XlsxTableModel(XSSFWorkbook workbook, 
-			boolean hasHeader, 
-			int rowAnnotations) {
-		this(workbook, hasHeader, rowAnnotations, false);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param workbook
+   *          the workbook
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   */
+  public XlsxTableModel(XSSFWorkbook workbook, boolean hasHeader, int rowAnnotations) {
+    this(workbook, hasHeader, rowAnnotations, false);
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param workbook the workbook
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 * @param supportColor the support color
-	 */
-	public XlsxTableModel(XSSFWorkbook workbook, 
-			boolean hasHeader, 
-			int rowAnnotations,
-			boolean supportColor) {
-		this(workbook, null, hasHeader, rowAnnotations, supportColor);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param workbook
+   *          the workbook
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   * @param supportColor
+   *          the support color
+   */
+  public XlsxTableModel(XSSFWorkbook workbook, boolean hasHeader, int rowAnnotations, boolean supportColor) {
+    this(workbook, null, hasHeader, rowAnnotations, supportColor);
+  }
 
-	/**
-	 * Instantiates a new xlsx table model.
-	 *
-	 * @param workbook the workbook
-	 * @param sheet the sheet
-	 * @param hasHeader the has header
-	 * @param rowAnnotations the row annotations
-	 * @param supportColor the support color
-	 */
-	public XlsxTableModel(XSSFWorkbook workbook, 
-			String sheet, 
-			boolean hasHeader,
-			int rowAnnotations,
-			boolean supportColor) {
-		super(sheet != null ? workbook.getSheet(sheet) : workbook.getSheetAt(0), 
-				hasHeader, 
-				rowAnnotations,
-				supportColor);
-	}
+  /**
+   * Instantiates a new xlsx table model.
+   *
+   * @param workbook
+   *          the workbook
+   * @param sheet
+   *          the sheet
+   * @param hasHeader
+   *          the has header
+   * @param rowAnnotations
+   *          the row annotations
+   * @param supportColor
+   *          the support color
+   */
+  public XlsxTableModel(XSSFWorkbook workbook, String sheet, boolean hasHeader, int rowAnnotations,
+      boolean supportColor) {
+    super(sheet != null ? workbook.getSheet(sheet) : workbook.getSheetAt(0), hasHeader, rowAnnotations, supportColor);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getCellStyle(int, int)
+   */
+  @Override
+  public ModernDataCellStyle getCellStyle(int row, int column) {
+    if (!getSupportColor()) {
+      return ModernDataCellStyle.DEFAULT_STYLE;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getCellStyle(int, int)
-	 */
-	@Override
-	public ModernDataCellStyle getCellStyle(int row, int column) {
-		if (!getSupportColor()) {
-			return ModernDataCellStyle.DEFAULT_STYLE;
-		}
+    if (getSheet().getRow(row) == null) {
+      return ModernDataCellStyle.DEFAULT_STYLE;
+    }
 
-		if (getSheet().getRow(row) == null) {
-			return ModernDataCellStyle.DEFAULT_STYLE;
-		}
+    if (getSheet().getRow(row).getCell(column) == null) {
+      return ModernDataCellStyle.DEFAULT_STYLE;
+    }
 
-		if (getSheet().getRow(row).getCell(column) == null) {
-			return ModernDataCellStyle.DEFAULT_STYLE;
-		}
+    if (getSheet().getRow(row).getCell(column).getCellStyle() == null) {
+      return ModernDataCellStyle.DEFAULT_STYLE;
+    }
 
-		if (getSheet().getRow(row).getCell(column).getCellStyle() == null) {
-			return ModernDataCellStyle.DEFAULT_STYLE;
-		}
+    ModernDataCellStyle style = new ModernDataCellStyle();
 
-		ModernDataCellStyle style = new ModernDataCellStyle();
+    String hexColor;
+    Color color;
 
-		String hexColor;
-		Color color;
+    XSSFColor xssf = ((XSSFCellStyle) getSheet().getRow(row).getCell(column).getCellStyle()).getFont().getXSSFColor();
 
-		XSSFColor xssf = ((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFont().getXSSFColor();
+    if (xssf != null) {
+      hexColor = xssf.getARGBHex().substring(2);
 
-		if (xssf != null) {
-			hexColor = xssf.getARGBHex().substring(2);
+      color = ColorUtils.decodeHtmlColor(hexColor);
 
-			color = ColorUtils.decodeHtmlColor(hexColor);
+      style.setColor(color);
+    }
 
-			style.setColor(color);
-		}
+    if (((XSSFCellStyle) getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor() != null) {
+      hexColor = ((XSSFCellStyle) getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor()
+          .getARGBHex().substring(2);
 
-		if (((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor() != null) {
-			hexColor = ((XSSFCellStyle)getSheet().getRow(row).getCell(column).getCellStyle()).getFillForegroundXSSFColor().getARGBHex().substring(2);
+      color = ColorUtils.decodeHtmlColor(hexColor);
 
-			color = ColorUtils.decodeHtmlColor(hexColor);
+      // System.err.println("Background " + color);
 
-			//System.err.println("Background " + color);
+      style.setBackground(color);
+    }
 
-			style.setBackground(color);
-		}
-
-		return style;
-	}
+    return style;
+  }
 }

@@ -30,85 +30,84 @@ import org.jebtk.modern.io.TxtGuiFileFilter;
  * The Class ExcelDialog.
  */
 public class ExcelDialog {
-	
-	/**
-	 * The Class ExcelOpenDialog.
-	 */
-	public static class ExcelOpenDialog {
 
-		/** The m open. */
-		private OpenDialog mOpen;
+  /**
+   * The Class ExcelOpenDialog.
+   */
+  public static class ExcelOpenDialog {
 
-		/**
-		 * Instantiates a new excel open dialog.
-		 *
-		 * @param frame the frame
-		 */
-		private ExcelOpenDialog(Frame frame) {
-			mOpen = FileDialog.open(frame);
-		}
-		
-		/**
-		 * Xlsx.
-		 *
-		 * @return the open files selection
-		 */
-		public OpenFilesSelection xlsx() {
-			return mOpen.filter(new AllXlsxGuiFileFilter(),
-					new XlsxGuiFileFilter(),
-					new CsvGuiFileFilter(),
-					new TxtGuiFileFilter());
-		}
-	}
-	
-	/**
-	 * Open.
-	 *
-	 * @param frame the frame
-	 * @return the excel open dialog
-	 */
-	public static ExcelOpenDialog open(Frame frame) {
-		return new ExcelOpenDialog(frame);
-	}
-	
-	
-	/**
-	 * The Class ExcelSaveDialog.
-	 */
-	public static class ExcelSaveDialog {
+    /** The m open. */
+    private OpenDialog mOpen;
 
-		/** The m save. */
-		private SaveDialog mSave;
+    /**
+     * Instantiates a new excel open dialog.
+     *
+     * @param frame
+     *          the frame
+     */
+    private ExcelOpenDialog(Frame frame) {
+      mOpen = FileDialog.open(frame);
+    }
 
-		/**
-		 * Instantiates a new excel save dialog.
-		 *
-		 * @param frame the frame
-		 */
-		private ExcelSaveDialog(Frame frame) {
-			mSave = FileDialog.save(frame);
-		}
-		
-		/**
-		 * Xlsx.
-		 *
-		 * @return the save file selection
-		 */
-		public SaveFileSelection xlsx() {
-			return mSave.filter(new AllXlsxGuiFileFilter(),
-					new XlsxGuiFileFilter(),
-					new CsvGuiFileFilter(),
-					new TxtGuiFileFilter());
-		}
-	}
-	
-	/**
-	 * Save.
-	 *
-	 * @param frame the frame
-	 * @return the excel save dialog
-	 */
-	public static ExcelSaveDialog save(Frame frame) {
-		return new ExcelSaveDialog(frame);
-	}
+    /**
+     * Xlsx.
+     *
+     * @return the open files selection
+     */
+    public OpenFilesSelection xlsx() {
+      return mOpen.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
+          new TxtGuiFileFilter());
+    }
+  }
+
+  /**
+   * Open.
+   *
+   * @param frame
+   *          the frame
+   * @return the excel open dialog
+   */
+  public static ExcelOpenDialog open(Frame frame) {
+    return new ExcelOpenDialog(frame);
+  }
+
+  /**
+   * The Class ExcelSaveDialog.
+   */
+  public static class ExcelSaveDialog {
+
+    /** The m save. */
+    private SaveDialog mSave;
+
+    /**
+     * Instantiates a new excel save dialog.
+     *
+     * @param frame
+     *          the frame
+     */
+    private ExcelSaveDialog(Frame frame) {
+      mSave = FileDialog.save(frame);
+    }
+
+    /**
+     * Xlsx.
+     *
+     * @return the save file selection
+     */
+    public SaveFileSelection xlsx() {
+      return mSave.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
+          new TxtGuiFileFilter());
+    }
+  }
+
+  /**
+   * Save.
+   *
+   * @param frame
+   *          the frame
+   * @return the excel save dialog
+   */
+  public static ExcelSaveDialog save(Frame frame) {
+    return new ExcelSaveDialog(frame);
+  }
 }

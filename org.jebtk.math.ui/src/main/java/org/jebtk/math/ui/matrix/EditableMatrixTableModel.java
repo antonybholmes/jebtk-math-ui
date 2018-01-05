@@ -29,7 +29,6 @@ package org.jebtk.math.ui.matrix;
 
 import org.jebtk.math.matrix.DataFrame;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Editable version of the matrix table model.
@@ -38,22 +37,27 @@ import org.jebtk.math.matrix.DataFrame;
  */
 public class EditableMatrixTableModel extends MatrixTableModel {
 
-	/**
-	 * Instantiates a new matrix table model.
-	 *
-	 * @param matrix the matrix
-	 */
-	public EditableMatrixTableModel(DataFrame matrix) {
-		super(matrix);
-	}
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public boolean getIsCellEditable(int row, int col) {
-		int r = row - mColAnns;
-		int c = col - mRowAnns;
-		
-		return r >= 0 && c >= 0;
-	}
+  /**
+   * Instantiates a new matrix table model.
+   *
+   * @param matrix
+   *          the matrix
+   */
+  public EditableMatrixTableModel(DataFrame matrix) {
+    super(matrix);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public boolean getIsCellEditable(int row, int col) {
+    int r = row - mColAnns;
+    int c = col - mRowAnns;
+
+    return r >= 0 && c >= 0;
+  }
 }

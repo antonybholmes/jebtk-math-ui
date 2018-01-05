@@ -47,66 +47,69 @@ import org.jebtk.modern.zoom.ZoomModel;
  */
 public class MatrixTable extends ModernSpreadsheet {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new matrix table.
-	 */
-	public MatrixTable() {
-		setFormat();
-	}
+  /**
+   * Instantiates a new matrix table.
+   */
+  public MatrixTable() {
+    setFormat();
+  }
 
-	public MatrixTable(ZoomModel zoomModel) {
-		this();
-		
-		setZoomModel(zoomModel);
-	}
+  public MatrixTable(ZoomModel zoomModel) {
+    this();
 
-	/**
-	 * Sets the format.
-	 */
-	public void setFormat() {
-		mCellRendererModel.setDefault(new ModernTableNumericCellRenderer());
+    setZoomModel(zoomModel);
+  }
 
-		fireDataUpdated();
-	}
+  /**
+   * Sets the format.
+   */
+  public void setFormat() {
+    mCellRendererModel.setDefault(new ModernTableNumericCellRenderer());
 
-	/**
-	 * Gets the selected columns.
-	 *
-	 * @return the selected columns
-	 */
-	public List<Integer> getSelectedColumns() {
-		if (mModel == null) {
-			return Collections.emptyList();
-		}
+    fireDataUpdated();
+  }
 
-		return Mathematics.subtract(CollectionUtils.toList(getColumnModel().getSelectionModel()), 
-				((MatrixTableModel)mModel).getMatrix().getRowAnnotationNames().size());
-	}
+  /**
+   * Gets the selected columns.
+   *
+   * @return the selected columns
+   */
+  public List<Integer> getSelectedColumns() {
+    if (mModel == null) {
+      return Collections.emptyList();
+    }
 
-	/**
-	 * Gets the selected rows.
-	 *
-	 * @return the selected rows
-	 */
-	public List<Integer> getSelectedRows() {
-		if (mModel == null) {
-			return Collections.emptyList();
-		}
-		
-		return Mathematics.subtract(CollectionUtils.toList(getRowModel().getSelectionModel()), 
-				((MatrixTableModel)mModel).getMatrix().getColumnAnnotationNames().size());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvas#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, Color.WHITE);
-	}
+    return Mathematics.subtract(CollectionUtils.toList(getColumnModel().getSelectionModel()),
+        ((MatrixTableModel) mModel).getMatrix().getRowAnnotationNames().size());
+  }
+
+  /**
+   * Gets the selected rows.
+   *
+   * @return the selected rows
+   */
+  public List<Integer> getSelectedRows() {
+    if (mModel == null) {
+      return Collections.emptyList();
+    }
+
+    return Mathematics.subtract(CollectionUtils.toList(getRowModel().getSelectionModel()),
+        ((MatrixTableModel) mModel).getMatrix().getColumnAnnotationNames().size());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvas#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, Color.WHITE);
+  }
 }

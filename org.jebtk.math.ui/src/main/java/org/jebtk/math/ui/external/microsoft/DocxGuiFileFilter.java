@@ -29,24 +29,25 @@ package org.jebtk.math.ui.external.microsoft;
 
 import org.jebtk.modern.io.GuiFileExtFilter;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class DocxGuiFileFilter.
  */
 public class DocxGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new docx gui file filter.
-	 */
-	public DocxGuiFileFilter() {
-		super("docx");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Word Files (*.docx)";
-	}
+  /**
+   * Instantiates a new docx gui file filter.
+   */
+  public DocxGuiFileFilter() {
+    super("docx");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Word Files (*.docx)";
+  }
 }

@@ -41,132 +41,147 @@ import org.jebtk.modern.table.ModernColumnHeaderTableModel;
  *
  */
 public class IdOrderTableModel extends ModernColumnHeaderTableModel {
-	
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {"", "Heading"};
 
-	/**
-	 * The member ids.
-	 */
-	private List<Indexed<Integer, String>> mIds;
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { "", "Heading" };
 
-	/**
-	 * Instantiates a new id order table model.
-	 *
-	 * @param ids the ids
-	 */
-	public IdOrderTableModel(List<Indexed<Integer, String>> ids) {
+  /**
+   * The member ids.
+   */
+  private List<Indexed<Integer, String>> mIds;
 
-		mIds = ids;
+  /**
+   * Instantiates a new id order table model.
+   *
+   * @param ids
+   *          the ids
+   */
+  public IdOrderTableModel(List<Indexed<Integer, String>> ids) {
 
-		fireDataChanged();
-	}
+    mIds = ids;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
-	 */
-	@Override
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+    fireDataChanged();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
-	 */
-	@Override
-	public final int getRowCount() {
-		//System.out.println("row count" + rows.size());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
+   */
+  @Override
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-		return mIds.size();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
+   */
+  @Override
+  public final int getRowCount() {
+    // System.out.println("row count" + rows.size());
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int column) {
-		return CollectionUtils.asList(HEADER[column]);
-	}
+    return mIds.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	public final Object getValueAt(int row, int col) {
-		switch (col) {
-		case 0:
-			return mIds.get(row).getIndex() + 1;
-		case 1:
-			return mIds.get(row).getValue();
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int column) {
+    return CollectionUtils.asList(HEADER[column]);
+  }
 
-		return null;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  public final Object getValueAt(int row, int col) {
+    switch (col) {
+    case 0:
+      return mIds.get(row).getIndex() + 1;
+    case 1:
+      return mIds.get(row).getValue();
+    }
 
-	/**
-	 * Swap up.
-	 *
-	 * @param indices the indices
-	 */
-	public void swapUp(List<Integer> indices) {
-		
-		List<Integer> sorted = CollectionUtils.sort(indices);
-		
-		for (int i : sorted) {
-			if (i == 0) {
-				continue;
-			}
+    return null;
+  }
 
-			Indexed<Integer, String> t = mIds.get(i - 1);
+  /**
+   * Swap up.
+   *
+   * @param indices
+   *          the indices
+   */
+  public void swapUp(List<Integer> indices) {
 
-			mIds.set(i - 1, mIds.get(i));
-			mIds.set(i, t);
-		}
+    List<Integer> sorted = CollectionUtils.sort(indices);
 
-		this.fireDataChanged();
-	}
+    for (int i : sorted) {
+      if (i == 0) {
+        continue;
+      }
 
-	/**
-	 * Swap down.
-	 *
-	 * @param indices the indices
-	 */
-	public void swapDown(List<Integer> indices) {
-		//System.err.println("swap down " + indices.toString());
-		
-		List<Integer> sorted = CollectionUtils.reverseSort(indices);
-		
-		for (int i : sorted) {
-			if (i == mIds.size() - 1) {
-				continue;
-			}
+      Indexed<Integer, String> t = mIds.get(i - 1);
 
-			Indexed<Integer, String> t = mIds.get(i + 1);
+      mIds.set(i - 1, mIds.get(i));
+      mIds.set(i, t);
+    }
 
-			mIds.set(i + 1, mIds.get(i));
-			mIds.set(i, t);
-		}
+    this.fireDataChanged();
+  }
 
-		this.fireDataChanged();
-	}
+  /**
+   * Swap down.
+   *
+   * @param indices
+   *          the indices
+   */
+  public void swapDown(List<Integer> indices) {
+    // System.err.println("swap down " + indices.toString());
 
-	/**
-	 * Gets the.
-	 *
-	 * @param index the index
-	 * @return the indexed value
-	 */
-	public final Indexed<Integer, String> get(int index) {
+    List<Integer> sorted = CollectionUtils.reverseSort(indices);
 
-		return mIds.get(index);
-	}
+    for (int i : sorted) {
+      if (i == mIds.size() - 1) {
+        continue;
+      }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public boolean getIsCellEditable(int row, int column) {
-		return false;
-	}
+      Indexed<Integer, String> t = mIds.get(i + 1);
+
+      mIds.set(i + 1, mIds.get(i));
+      mIds.set(i, t);
+    }
+
+    this.fireDataChanged();
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param index
+   *          the index
+   * @return the indexed value
+   */
+  public final Indexed<Integer, String> get(int index) {
+
+    return mIds.get(index);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public boolean getIsCellEditable(int row, int column) {
+    return false;
+  }
 }
