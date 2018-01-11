@@ -60,10 +60,8 @@ public class SheetDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new sheet dialog.
    *
-   * @param parent
-   *          the parent
-   * @param file
-   *          the file
+   * @param parent the parent
+   * @param file the file
    */
   public SheetDialog(ModernWindow parent, Path file) {
     super(parent);
@@ -87,7 +85,8 @@ public class SheetDialog extends ModernDialogTaskWindow {
     int[] rows = { ModernWidget.WIDGET_HEIGHT };
     int[] columns = { 100, 400, ModernWidget.WIDGET_HEIGHT };
 
-    MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING, ModernWidget.PADDING);
+    MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING,
+        ModernWidget.PADDING);
 
     panel.add(new ModernAutoSizeLabel("Sheet"));
     panel.add(mSheetCombo);

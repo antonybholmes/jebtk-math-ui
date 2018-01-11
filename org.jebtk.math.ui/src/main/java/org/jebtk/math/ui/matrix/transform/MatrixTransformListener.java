@@ -47,8 +47,7 @@ public interface MatrixTransformListener extends EventListener {
   /**
    * Matrix transform changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void matrixTransformChanged(ChangeEvent e);
 }

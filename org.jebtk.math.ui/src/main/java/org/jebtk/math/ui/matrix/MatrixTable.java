@@ -84,7 +84,8 @@ public class MatrixTable extends ModernSpreadsheet {
       return Collections.emptyList();
     }
 
-    return Mathematics.subtract(CollectionUtils.toList(getColumnModel().getSelectionModel()),
+    return Mathematics.subtract(
+        CollectionUtils.toList(getColumnModel().getSelectionModel()),
         ((MatrixTableModel) mModel).getMatrix().getRowAnnotationNames().size());
   }
 
@@ -98,8 +99,10 @@ public class MatrixTable extends ModernSpreadsheet {
       return Collections.emptyList();
     }
 
-    return Mathematics.subtract(CollectionUtils.toList(getRowModel().getSelectionModel()),
-        ((MatrixTableModel) mModel).getMatrix().getColumnAnnotationNames().size());
+    return Mathematics.subtract(
+        CollectionUtils.toList(getRowModel().getSelectionModel()),
+        ((MatrixTableModel) mModel).getMatrix().getColumnAnnotationNames()
+            .size());
   }
 
   /*

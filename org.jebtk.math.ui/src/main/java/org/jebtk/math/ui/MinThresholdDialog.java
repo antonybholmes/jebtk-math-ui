@@ -42,10 +42,8 @@ public class MinThresholdDialog extends ModernNumericalInputDialog {
   /**
    * Instantiates a new min threshold dialog.
    *
-   * @param parent
-   *          the parent
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param min the min
    */
   public MinThresholdDialog(ModernWindow parent, double min) {
     super(parent, "Minimum", "Minimum Threshold", min, 0, 1000, false);

@@ -45,24 +45,21 @@ public interface MatrixTransformEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addMatrixTransformListener(MatrixTransformListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeMatrixTransformListener(MatrixTransformListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireMatrixTransformChanged(ChangeEvent event);
 }

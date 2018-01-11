@@ -40,8 +40,7 @@ public class EditableMatrixTableModel extends MatrixTableModel {
   /**
    * Instantiates a new matrix table model.
    *
-   * @param matrix
-   *          the matrix
+   * @param matrix the matrix
    */
   public EditableMatrixTableModel(DataFrame matrix) {
     super(matrix);
@@ -50,7 +49,8 @@ public class EditableMatrixTableModel extends MatrixTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   @Override

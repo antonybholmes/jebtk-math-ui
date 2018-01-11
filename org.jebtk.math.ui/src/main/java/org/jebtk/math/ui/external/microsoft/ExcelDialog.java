@@ -42,8 +42,7 @@ public class ExcelDialog {
     /**
      * Instantiates a new excel open dialog.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     private ExcelOpenDialog(Frame frame) {
       mOpen = FileDialog.open(frame);
@@ -55,7 +54,9 @@ public class ExcelDialog {
      * @return the open files selection
      */
     public OpenFilesSelection xlsx() {
-      return mOpen.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
+      return mOpen.filter(new AllXlsxGuiFileFilter(),
+          new XlsxGuiFileFilter(),
+          new CsvGuiFileFilter(),
           new TxtGuiFileFilter());
     }
   }
@@ -63,8 +64,7 @@ public class ExcelDialog {
   /**
    * Open.
    *
-   * @param frame
-   *          the frame
+   * @param frame the frame
    * @return the excel open dialog
    */
   public static ExcelOpenDialog open(Frame frame) {
@@ -82,8 +82,7 @@ public class ExcelDialog {
     /**
      * Instantiates a new excel save dialog.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     private ExcelSaveDialog(Frame frame) {
       mSave = FileDialog.save(frame);
@@ -95,7 +94,9 @@ public class ExcelDialog {
      * @return the save file selection
      */
     public SaveFileSelection xlsx() {
-      return mSave.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
+      return mSave.filter(new AllXlsxGuiFileFilter(),
+          new XlsxGuiFileFilter(),
+          new CsvGuiFileFilter(),
           new TxtGuiFileFilter());
     }
   }
@@ -103,8 +104,7 @@ public class ExcelDialog {
   /**
    * Save.
    *
-   * @param frame
-   *          the frame
+   * @param frame the frame
    * @return the excel save dialog
    */
   public static ExcelSaveDialog save(Frame frame) {

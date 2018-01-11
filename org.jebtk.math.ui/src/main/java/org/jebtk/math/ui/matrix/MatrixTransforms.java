@@ -28,7 +28,6 @@
 package org.jebtk.math.ui.matrix;
 
 import org.jebtk.math.matrix.DataFrame;
-import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.math.matrix.utils.MatrixArithmetic;
 import org.jebtk.math.matrix.utils.MatrixOperations;
 import org.jebtk.math.ui.MeanFilterDialog;
@@ -47,15 +46,14 @@ public class MatrixTransforms {
   /**
    * Min threshold.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param min the min
    * @return the annotation matrix
    */
-  public static DataFrame minThreshold(ModernWindow parent, DataFrame matrix, double min) {
+  public static DataFrame minThreshold(ModernWindow parent,
+      DataFrame matrix,
+      double min) {
     MinThresholdDialog dialog = new MinThresholdDialog(parent, min);
 
     dialog.setVisible(true);
@@ -70,15 +68,14 @@ public class MatrixTransforms {
   /**
    * Subtract.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param min the min
    * @return the annotation matrix
    */
-  public static DataFrame subtract(ModernWindow parent, DataFrame matrix, double min) {
+  public static DataFrame subtract(ModernWindow parent,
+      DataFrame matrix,
+      double min) {
     MinThresholdDialog dialog = new MinThresholdDialog(parent, min);
 
     dialog.setVisible(true);
@@ -95,23 +92,23 @@ public class MatrixTransforms {
   /**
    * Min max threshold.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param min the min
+   * @param max the max
    * @return the annotation matrix
    */
-  public static DataFrame minMaxThreshold(ModernWindow parent, DataFrame matrix, double min, double max) {
+  public static DataFrame minMaxThreshold(ModernWindow parent,
+      DataFrame matrix,
+      double min,
+      double max) {
     MinMaxThresholdDialog dialog = new MinMaxThresholdDialog(parent, min, max);
 
     dialog.setVisible(true);
 
     if (dialog.getStatus() == ModernDialogStatus.OK) {
-      return MatrixOperations.threshold(matrix, dialog.getMin(), dialog.getMax());
+      return MatrixOperations
+          .threshold(matrix, dialog.getMin(), dialog.getMax());
     } else {
       return null;
     }
@@ -120,15 +117,14 @@ public class MatrixTransforms {
   /**
    * Std dev filter.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param min the min
    * @return the annotation matrix
    */
-  public static DataFrame stdDevFilter(ModernWindow parent, DataFrame matrix, double min) {
+  public static DataFrame stdDevFilter(ModernWindow parent,
+      DataFrame matrix,
+      double min) {
     StdDevFilterDialog dialog = new StdDevFilterDialog(parent, min);
 
     dialog.setVisible(true);
@@ -143,15 +139,14 @@ public class MatrixTransforms {
   /**
    * Mean filter.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param min the min
    * @return the annotation matrix
    */
-  public static DataFrame meanFilter(ModernWindow parent, DataFrame matrix, double min) {
+  public static DataFrame meanFilter(ModernWindow parent,
+      DataFrame matrix,
+      double min) {
     MeanFilterDialog dialog = new MeanFilterDialog(parent, min);
 
     dialog.setVisible(true);
@@ -166,10 +161,8 @@ public class MatrixTransforms {
   /**
    * Normalize.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
+   * @param parent the parent
+   * @param matrix the matrix
    * @return the annotation matrix
    */
   public static DataFrame normalize(ModernWindow parent, DataFrame matrix) {
@@ -179,23 +172,24 @@ public class MatrixTransforms {
   /**
    * Min exp filter.
    *
-   * @param parent
-   *          the parent
-   * @param matrix
-   *          the matrix
-   * @param minExp
-   *          the min exp
-   * @param minSamples
-   *          the min samples
+   * @param parent the parent
+   * @param matrix the matrix
+   * @param minExp the min exp
+   * @param minSamples the min samples
    * @return the annotation matrix
    */
-  public static DataFrame minExpFilter(ModernWindow parent, DataFrame matrix, double minExp, int minSamples) {
-    MinExpFilterDialog dialog = new MinExpFilterDialog(parent, minExp, minSamples);
+  public static DataFrame minExpFilter(ModernWindow parent,
+      DataFrame matrix,
+      double minExp,
+      int minSamples) {
+    MinExpFilterDialog dialog = new MinExpFilterDialog(parent, minExp,
+        minSamples);
 
     dialog.setVisible(true);
 
     if (dialog.getStatus() == ModernDialogStatus.OK) {
-      return MatrixOperations.minExpFilter(matrix, dialog.getMinExp(), dialog.getMinSamples());
+      return MatrixOperations
+          .minExpFilter(matrix, dialog.getMinExp(), dialog.getMinSamples());
     } else {
       return null;
     }

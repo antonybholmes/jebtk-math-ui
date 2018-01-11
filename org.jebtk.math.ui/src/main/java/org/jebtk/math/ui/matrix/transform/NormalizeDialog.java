@@ -53,7 +53,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class NormalizeDialog.
  */
-public class NormalizeDialog extends ModernDialogWindow implements ModernClickListener {
+public class NormalizeDialog extends ModernDialogWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -78,10 +79,8 @@ public class NormalizeDialog extends ModernDialogWindow implements ModernClickLi
   /**
    * Instantiates a new normalize dialog.
    *
-   * @param parent
-   *          the parent
-   * @param scale
-   *          the scale
+   * @param parent the parent
+   * @param scale the scale
    */
   public NormalizeDialog(ModernWindow parent, double scale) {
     super(parent);
@@ -98,8 +97,7 @@ public class NormalizeDialog extends ModernDialogWindow implements ModernClickLi
   /**
    * Sets the up.
    *
-   * @param scale
-   *          the new up
+   * @param scale the new up
    */
   private void setup(double scale) {
     okButton.addClickListener(this);
@@ -125,7 +123,8 @@ public class NormalizeDialog extends ModernDialogWindow implements ModernClickLi
     int[] rows = { ModernWidget.WIDGET_HEIGHT };
     int[] cols = { 200, 100 };
 
-    MatrixPanel matrixPanel = new MatrixPanel(rows, cols, ModernWidget.PADDING, ModernWidget.PADDING);
+    MatrixPanel matrixPanel = new MatrixPanel(rows, cols, ModernWidget.PADDING,
+        ModernWidget.PADDING);
 
     matrixPanel.add(new ModernAutoSizeLabel("Scale"));
     matrixPanel.add(new ModernTextBorderPanel(minField));
@@ -159,8 +158,8 @@ public class NormalizeDialog extends ModernDialogWindow implements ModernClickLi
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-   * event.ModernClickEvent)
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * ui. event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getMessage().equals(UI.BUTTON_OK)) {

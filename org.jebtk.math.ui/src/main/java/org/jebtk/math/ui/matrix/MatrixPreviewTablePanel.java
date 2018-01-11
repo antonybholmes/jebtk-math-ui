@@ -64,8 +64,7 @@ public class MatrixPreviewTablePanel extends ModernWidget {
   /**
    * Instantiates a new matrix preview table panel.
    *
-   * @param matrix
-   *          the matrix
+   * @param matrix the matrix
    */
   public MatrixPreviewTablePanel(DataFrame matrix) {
     mMatrix = matrix;

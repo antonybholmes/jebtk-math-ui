@@ -43,10 +43,8 @@ public class MeanFilterDialog extends SimpleFilterDialog {
   /**
    * Instantiates a new std dev filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param min the min
    */
   public MeanFilterDialog(ModernWindow parent, double min) {
     super(parent, "Mean", min);

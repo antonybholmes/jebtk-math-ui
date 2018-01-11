@@ -59,12 +59,9 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new std dev filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param name
-   *          the name
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param name the name
+   * @param min the min
    */
   public SimpleFilterDialog(ModernWindow parent, String name, double min) {
     super(parent);
@@ -80,8 +77,7 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
   /**
    * Sets the up.
    *
-   * @param min
-   *          the new up
+   * @param min the new up
    */
   private void setup(double min) {
     mMinField.setText(Double.toString(min));
@@ -94,8 +90,7 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
   /**
    * Creates the ui.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   private final void createUi(String name) {
     // this.getContentPane().add(new JLabel("Change " +

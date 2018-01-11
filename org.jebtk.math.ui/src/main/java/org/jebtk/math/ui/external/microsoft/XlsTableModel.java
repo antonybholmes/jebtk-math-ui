@@ -60,82 +60,65 @@ public class XlsTableModel extends ExcelTableModel {
   /**
    * Instantiates a new xls table model.
    *
-   * @param file
-   *          the file
-   * @param hasHeader
-   *          the has header
-   * @param rowAnnotations
-   *          the row annotations
-   * @param supportColor
-   *          the support color
-   * @throws InvalidFormatException
-   *           the invalid format exception
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param hasHeader the has header
+   * @param rowAnnotations the row annotations
+   * @param supportColor the support color
+   * @throws InvalidFormatException the invalid format exception
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public XlsTableModel(Path file, boolean hasHeader, int rowAnnotations, boolean supportColor)
-      throws InvalidFormatException, IOException {
-    this(new HSSFWorkbook(FileUtils.newBufferedInputStream(file)), null, hasHeader, rowAnnotations, supportColor);// new
-                                                                                                                  // HSSFWorkbook(file));
+  public XlsTableModel(Path file, boolean hasHeader, int rowAnnotations,
+      boolean supportColor) throws InvalidFormatException, IOException {
+    this(new HSSFWorkbook(FileUtils.newBufferedInputStream(file)), null,
+        hasHeader, rowAnnotations, supportColor);// new
+                                                 // HSSFWorkbook(file));
   }
 
   /**
    * Instantiates a new xls table model.
    *
-   * @param file
-   *          the file
-   * @param sheet
-   *          the sheet
-   * @param hasHeader
-   *          the has header
-   * @param rowAnnotations
-   *          the row annotations
-   * @param supportColor
-   *          the support color
-   * @throws InvalidFormatException
-   *           the invalid format exception
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param sheet the sheet
+   * @param hasHeader the has header
+   * @param rowAnnotations the row annotations
+   * @param supportColor the support color
+   * @throws InvalidFormatException the invalid format exception
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public XlsTableModel(Path file, String sheet, boolean hasHeader, int rowAnnotations, boolean supportColor)
+  public XlsTableModel(Path file, String sheet, boolean hasHeader,
+      int rowAnnotations, boolean supportColor)
       throws InvalidFormatException, IOException {
-    this(new HSSFWorkbook(FileUtils.newBufferedInputStream(file)), sheet, hasHeader, rowAnnotations, supportColor);// new
-                                                                                                                   // HSSFWorkbook(file));
+    this(new HSSFWorkbook(FileUtils.newBufferedInputStream(file)), sheet,
+        hasHeader, rowAnnotations, supportColor);// new
+                                                 // HSSFWorkbook(file));
   }
 
   /**
    * Instantiates a new xls table model.
    *
-   * @param workbook
-   *          the workbook
-   * @param hasHeader
-   *          the has header
-   * @param rowAnnotations
-   *          the row annotations
-   * @param supportColor
-   *          the support color
+   * @param workbook the workbook
+   * @param hasHeader the has header
+   * @param rowAnnotations the row annotations
+   * @param supportColor the support color
    */
-  public XlsTableModel(HSSFWorkbook workbook, boolean hasHeader, int rowAnnotations, boolean supportColor) {
+  public XlsTableModel(HSSFWorkbook workbook, boolean hasHeader,
+      int rowAnnotations, boolean supportColor) {
     this(workbook, null, hasHeader, rowAnnotations, supportColor);
   }
 
   /**
    * Instantiates a new xls table model.
    *
-   * @param workbook
-   *          the workbook
-   * @param sheet
-   *          the sheet
-   * @param hasHeader
-   *          the has header
-   * @param rowAnnotations
-   *          the row annotations
-   * @param supportColor
-   *          the support color
+   * @param workbook the workbook
+   * @param sheet the sheet
+   * @param hasHeader the has header
+   * @param rowAnnotations the row annotations
+   * @param supportColor the support color
    */
-  public XlsTableModel(HSSFWorkbook workbook, String sheet, boolean hasHeader, int rowAnnotations,
-      boolean supportColor) {
-    super(sheet != null ? workbook.getSheet(sheet) : workbook.getSheetAt(0), hasHeader, rowAnnotations, supportColor);
+  public XlsTableModel(HSSFWorkbook workbook, String sheet, boolean hasHeader,
+      int rowAnnotations, boolean supportColor) {
+    super(sheet != null ? workbook.getSheet(sheet) : workbook.getSheetAt(0),
+        hasHeader, rowAnnotations, supportColor);
 
     mWorkbook = workbook;
 
@@ -145,7 +128,8 @@ public class XlsTableModel extends ExcelTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getCellStyle(int, int)
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getCellStyle(int,
+   * int)
    */
   @Override
   public ModernDataCellStyle getCellStyle(int row, int column) {
@@ -153,7 +137,8 @@ public class XlsTableModel extends ExcelTableModel {
       return ModernDataCellStyle.DEFAULT_STYLE;
     }
 
-    short colorIndex = mWorkbook.getFontAt(getSheet().getRow(row).getCell(column).getCellStyle().getFontIndex())
+    short colorIndex = mWorkbook.getFontAt(
+        getSheet().getRow(row).getCell(column).getCellStyle().getFontIndex())
         .getColor();
 
     HSSFColor color = mPalette.getColor(colorIndex);

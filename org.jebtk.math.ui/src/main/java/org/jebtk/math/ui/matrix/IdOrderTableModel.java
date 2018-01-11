@@ -55,8 +55,7 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /**
    * Instantiates a new id order table model.
    *
-   * @param ids
-   *          the ids
+   * @param ids the ids
    */
   public IdOrderTableModel(List<Indexed<Integer, String>> ids) {
 
@@ -90,7 +89,8 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int column) {
@@ -116,8 +116,7 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /**
    * Swap up.
    *
-   * @param indices
-   *          the indices
+   * @param indices the indices
    */
   public void swapUp(List<Integer> indices) {
 
@@ -140,8 +139,7 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /**
    * Swap down.
    *
-   * @param indices
-   *          the indices
+   * @param indices the indices
    */
   public void swapDown(List<Integer> indices) {
     // System.err.println("swap down " + indices.toString());
@@ -165,8 +163,7 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /**
    * Gets the.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the indexed value
    */
   public final Indexed<Integer, String> get(int index) {
@@ -177,7 +174,8 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   @Override

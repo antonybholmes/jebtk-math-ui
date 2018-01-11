@@ -77,7 +77,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class IdOrderDialog extends ModernDialogWindow implements ModernClickListener {
+public class IdOrderDialog extends ModernDialogWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -109,8 +110,8 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
   /**
    * The member alphabetical button.
    */
-  private ModernButton mAlphabeticalButton = new ModernDialogFlatButton("Alphabetical",
-      UIService.getInstance().loadIcon("alphabetical", 16));
+  private ModernButton mAlphabeticalButton = new ModernDialogFlatButton(
+      "Alphabetical", UIService.getInstance().loadIcon("alphabetical", 16));
 
   /**
    * The member load button.
@@ -142,8 +143,8 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-     * event.ModernClickEvent)
+     * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+     * ui. event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -155,19 +156,14 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
   /**
    * Instantiates a new id order dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param types
-   *          the types
-   * @param ids
-   *          the ids
-   * @param workingDirectory
-   *          the working directory
+   * @param parent the parent
+   * @param title the title
+   * @param types the types
+   * @param ids the ids
+   * @param workingDirectory the working directory
    */
-  public IdOrderDialog(ModernWindow parent, String title, List<String> types, List<List<Indexed<Integer, String>>> ids,
-      Path workingDirectory) {
+  public IdOrderDialog(ModernWindow parent, String title, List<String> types,
+      List<List<Indexed<Integer, String>>> ids, Path workingDirectory) {
     super(parent);
 
     setTitle(title);
@@ -267,8 +263,7 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
   /**
    * Load ids.
    *
-   * @param ids
-   *          the ids
+   * @param ids the ids
    */
   private void loadIds(List<Indexed<Integer, String>> ids) {
     mModel = new IdOrderTableModel(ids);
@@ -283,8 +278,8 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-   * event.ModernClickEvent)
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * ui. event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mUpButton)) {
@@ -402,8 +397,7 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
   /**
    * Sort by external id list.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void sortByExternalIdList() throws IOException {
 
@@ -419,10 +413,8 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
   /**
    * Sort by external id list.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void sortByExternalIdList(Path file) throws IOException {
     BufferedReader reader = FileUtils.newBufferedReader(file);
@@ -440,7 +432,8 @@ public class IdOrderDialog extends ModernDialogWindow implements ModernClickList
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         ids.add(tokens.get(0));
       }

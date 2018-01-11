@@ -41,7 +41,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class MinMaxThresholdDialog.
  */
-public class MinMaxThresholdDialog extends ModernDialogTaskWindow implements ModernClickListener {
+public class MinMaxThresholdDialog extends ModernDialogTaskWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -61,12 +62,9 @@ public class MinMaxThresholdDialog extends ModernDialogTaskWindow implements Mod
   /**
    * Instantiates a new min max threshold dialog.
    *
-   * @param parent
-   *          the parent
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param parent the parent
+   * @param min the min
+   * @param max the max
    */
   public MinMaxThresholdDialog(ModernWindow parent, double min, double max) {
     super(parent);
@@ -81,10 +79,8 @@ public class MinMaxThresholdDialog extends ModernDialogTaskWindow implements Mod
   /**
    * Setup.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param min the min
+   * @param max the max
    */
   private void setup(double min, double max) {
     mMinField.setText(Double.toString(min));

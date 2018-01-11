@@ -39,7 +39,8 @@ import org.jebtk.modern.table.ModernTableModel;
  *
  * @author Antony Holmes Holmes
  */
-public class MatrixTableModel extends ModernTableModel implements MatrixEventListener {
+public class MatrixTableModel extends ModernTableModel
+    implements MatrixEventListener {
 
   /**
    * The member matrix.
@@ -55,8 +56,7 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
   /**
    * Instantiates a new matrix table model.
    *
-   * @param matrix
-   *          the matrix
+   * @param matrix the matrix
    */
   public MatrixTableModel(DataFrame matrix) {
     mMatrix = matrix;
@@ -138,9 +138,8 @@ public class MatrixTableModel extends ModernTableModel implements MatrixEventLis
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.math.matrix.MatrixEventListener#matrixChanged(org.abh.lib.event.
-   * ChangeEvent)
+   * @see org.abh.lib.math.matrix.MatrixEventListener#matrixChanged(org.abh.lib.
+   * event. ChangeEvent)
    */
   @Override
   public void matrixChanged(ChangeEvent e) {

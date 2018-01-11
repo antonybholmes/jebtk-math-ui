@@ -67,7 +67,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The Class ColumnFilterDialog.
  */
-public class ColumnFilterDialog extends ModernDialogWindow implements ModernClickListener {
+public class ColumnFilterDialog extends ModernDialogWindow
+    implements ModernClickListener {
 
   /**
    * The Constant serialVersionUID.
@@ -102,12 +103,14 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
   /**
    * The select all button.
    */
-  private ModernButton selectAllButton = new ModernDialogFlatButton("Select All");
+  private ModernButton selectAllButton = new ModernDialogFlatButton(
+      "Select All");
 
   /**
    * The unselect all button.
    */
-  private ModernButton unselectAllButton = new ModernDialogFlatButton("Unselect All");
+  private ModernButton unselectAllButton = new ModernDialogFlatButton(
+      "Unselect All");
 
   /**
    * The member load button.
@@ -128,14 +131,12 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
   /**
    * Instantiates a new column filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param ids
-   *          the ids
-   * @param workingDirectory
-   *          the working directory
+   * @param parent the parent
+   * @param ids the ids
+   * @param workingDirectory the working directory
    */
-  public ColumnFilterDialog(ModernWindow parent, List<Indexed<Integer, String>> ids, Path workingDirectory) {
+  public ColumnFilterDialog(ModernWindow parent,
+      List<Indexed<Integer, String>> ids, Path workingDirectory) {
     super(parent);
 
     mColumns = ids;
@@ -216,8 +217,8 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-   * event.ModernClickEvent)
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * ui. event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(toggleButton)) {
@@ -246,8 +247,7 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
   /**
    * Import ids.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void importIds() throws IOException {
 
@@ -263,10 +263,8 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
   /**
    * Import ids.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void importIds(Path file) throws IOException {
     mModel.clear();
@@ -286,7 +284,8 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         ids.add(tokens.get(0));
       }
@@ -315,8 +314,7 @@ public class ColumnFilterDialog extends ModernDialogWindow implements ModernClic
   /**
    * Check all.
    *
-   * @param value
-   *          the value
+   * @param value the value
    */
   private void checkAll(boolean value) {
 

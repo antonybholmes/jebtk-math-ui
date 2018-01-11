@@ -73,16 +73,14 @@ public class ExcelUI {
   /**
    * Write xlsx locked.
    *
-   * @param model
-   *          the model
-   * @param file
-   *          the file
-   * @param password
-   *          the password
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param model the model
+   * @param file the file
+   * @param password the password
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static void writeXlsxLocked(ModernTableModel model, Path file, String password) throws IOException {
+  public static void writeXlsxLocked(ModernTableModel model,
+      Path file,
+      String password) throws IOException {
     XSSFWorkbook workbook = createWorkbook(model);
 
     Excel.writeXlsxLocked(workbook, file, password);
@@ -91,14 +89,12 @@ public class ExcelUI {
   /**
    * Write.
    *
-   * @param model
-   *          the model
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param model the model
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static void write(ModernDataModel model, Path file) throws IOException {
+  public static void write(ModernDataModel model, Path file)
+      throws IOException {
     String ext = PathUtils.getFileExt(file);
 
     if (ext.equals(Excel.XLSX_EXTENSION)) {
@@ -111,14 +107,12 @@ public class ExcelUI {
   /**
    * Create a workbook from a model and then write it to file.
    *
-   * @param model
-   *          the model
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param model the model
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static void writeXlsx(ModernDataModel model, Path file) throws IOException {
+  public static void writeXlsx(ModernDataModel model, Path file)
+      throws IOException {
     XSSFWorkbook workbook = createWorkbook(model);
 
     Excel.writeXlsx(workbook, file);
@@ -127,8 +121,7 @@ public class ExcelUI {
   /**
    * Create a workbook from a model.
    *
-   * @param model
-   *          the model
+   * @param model the model
    * @return the XSSF workbook
    */
   public static XSSFWorkbook createWorkbook(ModernDataModel model) {
@@ -191,7 +184,8 @@ public class ExcelUI {
       for (int j = 0; j < model.getColumnCount(); ++j) {
         cell = row.createCell(j);
 
-        Object value = model.getValueAt(i, j); // != null ? model.getValueAt(i, j).toString() : "";
+        Object value = model.getValueAt(i, j); // != null ? model.getValueAt(i,
+                                               // j).toString() : "";
 
         if (value != null) {
           if (value instanceof Double) {
@@ -214,21 +208,25 @@ public class ExcelUI {
         ModernDataCellStyle style = model.getCellStyle(i, j);
 
         if (!styles.containsKey(style.toString())) {
-          // System.err.println(i + " " + j + " " + model.getCellStyle(i, j).toString());
+          // System.err.println(i + " " + j + " " + model.getCellStyle(i,
+          // j).toString());
 
           XSSFCellStyle cellStyle = workbook.createCellStyle();
           cellStyle.setFont(font);
 
           // Again we must ignore black and white because POI encodes
           // them incorrectly
-          if (!style.getBackground().equals(Color.WHITE) && !style.getBackground().equals(Color.BLACK)) {
+          if (!style.getBackground().equals(Color.WHITE)
+              && !style.getBackground().equals(Color.BLACK)) {
             cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-            cellStyle.setFillForegroundColor(new XSSFColor(style.getBackground()));
+            cellStyle
+                .setFillForegroundColor(new XSSFColor(style.getBackground()));
           }
 
           cellStyle.setFont(workbook.createFont());
 
-          if (!style.getColor().equals(Color.WHITE) && !style.getColor().equals(Color.BLACK)) {
+          if (!style.getColor().equals(Color.WHITE)
+              && !style.getColor().equals(Color.BLACK)) {
             cellStyle.getFont().setColor(new XSSFColor(style.getColor()));
           }
 
@@ -254,20 +252,16 @@ public class ExcelUI {
   /**
    * Gets the text from file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param skipHeader
-   *          the skip header
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param skipHeader the skip header
    * @return the text from file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws InvalidFormatException
-   *           the invalid format exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws InvalidFormatException the invalid format exception
    */
-  public static List<String> getTextFromFile(ModernWindow parent, Path pwd, boolean skipHeader)
-      throws IOException, InvalidFormatException {
+  public static List<String> getTextFromFile(ModernWindow parent,
+      Path pwd,
+      boolean skipHeader) throws IOException, InvalidFormatException {
     Path file = openExcelFileDialog(parent, pwd);
 
     if (file != null) {
@@ -280,16 +274,14 @@ public class ExcelUI {
   /**
    * Saves a data model an xlsx or text file.
    *
-   * @param parent
-   *          the parent
-   * @param model
-   *          the model
-   * @param pwd
-   *          the pwd
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param parent the parent
+   * @param model the model
+   * @param pwd the pwd
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static void saveXlsxFileDialog(ModernWindow parent, ModernDataModel model, Path pwd) throws IOException {
+  public static void saveXlsxFileDialog(ModernWindow parent,
+      ModernDataModel model,
+      Path pwd) throws IOException {
     Path file = saveXlsxFileDialog(parent, pwd);
 
     if (file == null) {
@@ -297,7 +289,8 @@ public class ExcelUI {
     }
 
     if (FileUtils.exists(file)) {
-      ModernDialogStatus status = ModernMessageDialog.createFileReplaceDialog(parent, file);
+      ModernDialogStatus status = ModernMessageDialog
+          .createFileReplaceDialog(parent, file);
 
       if (status == ModernDialogStatus.CANCEL) {
         saveXlsxFileDialog(parent, model, pwd);
@@ -310,77 +303,81 @@ public class ExcelUI {
 
     RecentFilesService.getInstance().add(file);
 
-    ModernMessageDialog.createFileSavedDialog(parent, parent.getAppInfo().getName(), file);
+    ModernMessageDialog
+        .createFileSavedDialog(parent, parent.getAppInfo().getName(), file);
   }
 
   /**
    * We only support saving to xlsx as this is a more open format.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static Path saveXlsxFileDialog(Frame parent, Path pwd) throws IOException {
-    return FileDialog.saveFile(parent, pwd, new XlsxGuiFileFilter(), new TxtGuiFileFilter());
+  public static Path saveXlsxFileDialog(Frame parent, Path pwd)
+      throws IOException {
+    return FileDialog
+        .saveFile(parent, pwd, new XlsxGuiFileFilter(), new TxtGuiFileFilter());
   }
 
   /**
    * Open excel file dialog.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static Path openExcelFileDialog(Frame parent, Path pwd) throws IOException {
-    return FileDialog.openFile(parent, pwd, new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
+  public static Path openExcelFileDialog(Frame parent, Path pwd)
+      throws IOException {
+    return FileDialog.openFile(parent,
+        pwd,
+        new AllXlsxGuiFileFilter(),
+        new XlsxGuiFileFilter(),
+        new CsvGuiFileFilter(),
         new TxtGuiFileFilter());
   }
 
   /**
    * Open excel files dialog.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the list
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static List<Path> openExcelFilesDialog(Frame parent, Path pwd) throws IOException {
-    return FileDialog.openFiles(parent, pwd, new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(),
-        new CsvGuiFileFilter(), new TxtGuiFileFilter());
+  public static List<Path> openExcelFilesDialog(Frame parent, Path pwd)
+      throws IOException {
+    return FileDialog.openFiles(parent,
+        pwd,
+        new AllXlsxGuiFileFilter(),
+        new XlsxGuiFileFilter(),
+        new CsvGuiFileFilter(),
+        new TxtGuiFileFilter());
   }
 
   /**
    * Load from xlsx.
    *
-   * @param file
-   *          the file
-   * @param hasHeader
-   *          the has header
-   * @param skipMatches
-   *          the skip matches
-   * @param rowAnnotations
-   *          the row annotations
-   * @param delimiter
-   *          the delimiter
+   * @param file the file
+   * @param hasHeader the has header
+   * @param skipMatches the skip matches
+   * @param rowAnnotations the row annotations
+   * @param delimiter the delimiter
    * @return the matrix table model
-   * @throws InvalidFormatException
-   *           the invalid format exception
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws InvalidFormatException the invalid format exception
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static EditableMatrixTableModel loadFromXlsx(Path file, boolean hasHeader, List<String> skipMatches,
-      int rowAnnotations, String delimiter) throws InvalidFormatException, IOException {
-    return new EditableMatrixTableModel(Excel.convertToMatrix(file, hasHeader, skipMatches, rowAnnotations, delimiter));
+  public static EditableMatrixTableModel loadFromXlsx(Path file,
+      boolean hasHeader,
+      List<String> skipMatches,
+      int rowAnnotations,
+      String delimiter) throws InvalidFormatException, IOException {
+    return new EditableMatrixTableModel(Excel.convertToMatrix(file,
+        hasHeader,
+        skipMatches,
+        rowAnnotations,
+        delimiter));
   }
 }

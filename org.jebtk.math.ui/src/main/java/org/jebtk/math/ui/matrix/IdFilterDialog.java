@@ -76,7 +76,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class IdFilterDialog.
  */
-public class IdFilterDialog extends ModernDialogWindow implements ModernClickListener, KeyListener {
+public class IdFilterDialog extends ModernDialogWindow
+    implements ModernClickListener, KeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -124,7 +125,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * The import button.
    */
-  private ModernButton importButton = new ModernDialogFlatButton(UI.BUTTON_IMPORT,
+  private ModernButton importButton = new ModernDialogFlatButton(
+      UI.BUTTON_IMPORT,
       UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
 
   /**
@@ -161,8 +163,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-     * event.ModernClickEvent)
+     * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+     * ui. event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -174,14 +176,12 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Instantiates a new id filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param workingDirectory
-   *          the working directory
+   * @param parent the parent
+   * @param title the title
+   * @param workingDirectory the working directory
    */
-  public IdFilterDialog(ModernWindow parent, String title, Path workingDirectory) {
+  public IdFilterDialog(ModernWindow parent, String title,
+      Path workingDirectory) {
     super(parent);
 
     mPWd = workingDirectory;
@@ -192,19 +192,14 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Instantiates a new id filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param workingDirectory
-   *          the working directory
-   * @param types
-   *          the types
-   * @param ids
-   *          the ids
+   * @param parent the parent
+   * @param title the title
+   * @param workingDirectory the working directory
+   * @param types the types
+   * @param ids the ids
    */
-  public IdFilterDialog(ModernWindow parent, String title, Path workingDirectory, List<String> types,
-      List<List<String>> ids) {
+  public IdFilterDialog(ModernWindow parent, String title,
+      Path workingDirectory, List<String> types, List<List<String>> ids) {
     super(parent);
 
     mPWd = workingDirectory;
@@ -235,8 +230,7 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Sets the up.
    *
-   * @param title
-   *          the new up
+   * @param title the new up
    */
   private void setup(String title) {
     setTitle(title);
@@ -252,7 +246,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
     int[] rows = { ModernWidget.WIDGET_HEIGHT };
     int[] columns = { 100, 400, ModernWidget.WIDGET_HEIGHT };
 
-    MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING, ModernWidget.PADDING);
+    MatrixPanel panel = new MatrixPanel(rows, columns, ModernWidget.PADDING,
+        ModernWidget.PADDING);
 
     panel.add(new ModernAutoSizeLabel("New row id"));
     panel.add(new ModernTextBorderPanel(newRowTextField));
@@ -310,11 +305,13 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
 
     importButton.addClickListener(this);
 
-    removeButton.setToolTip(new ModernToolTip("Remove Row Ids", "Remove selected row identifiers from the list."));
+    removeButton.setToolTip(new ModernToolTip("Remove Row Ids",
+        "Remove selected row identifiers from the list."));
 
     removeButton.addClickListener(this);
 
-    clearButton.setToolTip(new ModernToolTip("Clear All Ids", "Remove all row identifiers from the list."));
+    clearButton.setToolTip(new ModernToolTip("Clear All Ids",
+        "Remove all row identifiers from the list."));
 
     clearButton.addClickListener(this);
   }
@@ -323,8 +320,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.ui.
-   * event.ModernClickEvent)
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * ui. event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(addButton)) {
@@ -371,7 +368,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
    */
   private void addId() {
 
-    if (this.newRowTextField.getText() != null && !this.newRowTextField.getText().equals("")) {
+    if (this.newRowTextField.getText() != null
+        && !this.newRowTextField.getText().equals("")) {
       model.addValue(this.newRowTextField.getText());
     }
 
@@ -412,8 +410,7 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Import ids.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void importIds() throws IOException {
 
@@ -429,10 +426,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Import ids.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void importIds(Path file) throws IOException {
 
@@ -451,7 +446,8 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         ids.add(tokens.get(0));
       }
@@ -474,8 +470,7 @@ public class IdFilterDialog extends ModernDialogWindow implements ModernClickLis
   /**
    * Load ids.
    *
-   * @param ids
-   *          the ids
+   * @param ids the ids
    */
   private void loadIds(List<String> ids) {
     for (String id : ids) {

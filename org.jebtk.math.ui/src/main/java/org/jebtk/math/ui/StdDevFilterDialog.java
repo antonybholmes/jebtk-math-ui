@@ -43,10 +43,8 @@ public class StdDevFilterDialog extends SimpleFilterDialog {
   /**
    * Instantiates a new std dev filter dialog.
    *
-   * @param parent
-   *          the parent
-   * @param min
-   *          the min
+   * @param parent the parent
+   * @param min the min
    */
   public StdDevFilterDialog(ModernWindow parent, double min) {
     super(parent, "Minimum Standard Deviation", min);

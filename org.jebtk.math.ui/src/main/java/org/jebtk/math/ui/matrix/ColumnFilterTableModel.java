@@ -58,8 +58,7 @@ public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
   /**
    * Instantiates a new column filter table model.
    *
-   * @param columns
-   *          the columns
+   * @param columns the columns
    */
   public ColumnFilterTableModel(List<Indexed<Integer, String>> columns) {
 
@@ -95,7 +94,8 @@ public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int column) {
@@ -122,7 +122,8 @@ public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   public final boolean getIsCellEditable(int row, int col) {
@@ -149,8 +150,7 @@ public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
   /**
    * Gets the indexed value from the table.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the indexed value
    */
   public final Indexed<Integer, String> get(int index) {
