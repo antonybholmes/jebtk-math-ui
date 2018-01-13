@@ -93,7 +93,7 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
    * @param name the name
    */
   private final void createUi(String name) {
-    // this.getContentPane().add(new JLabel("Change " +
+    // this.getWindowContentPanel().add(new JLabel("Change " +
     // getProductDetails().getProductName() + " settings", JLabel.LEFT),
     // BorderLayout.PAGE_START);
 
