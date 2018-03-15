@@ -105,7 +105,7 @@ public class MinMaxThresholdDialog extends ModernDialogTaskWindow
     box.add(UI.createVGap(5));
     box.add(new HExpandBox("Maximum", mMaxField));
 
-    setDialogCardContent(box);
+    setCard(box);
   }
 
   /**

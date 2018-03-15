@@ -103,7 +103,7 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
     box.add(Box.createHorizontalGlue());
     box.add(new ModernTextBorderPanel(mMinField, 100));
 
-    setDialogCardContent(box);
+    setCard(box);
   }
 
   /**

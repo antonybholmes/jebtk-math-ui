@@ -103,7 +103,7 @@ public class MinExpFilterDialog extends ModernDialogTaskWindow {
     box.add(UI.createVGap(5));
     box.add(new HExpandBox("Minimum Samples", minSamplesField));
 
-    setDialogCardContent(box);
+    setCard(box);
   }
 
   /**
