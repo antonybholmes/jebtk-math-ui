@@ -42,13 +42,9 @@ import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
-import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.button.ModernButtonWidget;
-import org.jebtk.modern.dialog.ModernDialogButton;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
-import org.jebtk.modern.dialog.ModernDialogStatus;
-import org.jebtk.modern.dialog.ModernDialogWindow;
+import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
@@ -67,7 +63,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The Class ColumnFilterDialog.
  */
-public class ColumnFilterDialog extends ModernDialogWindow
+public class ColumnFilterDialog extends ModernDialogTaskWindow
     implements ModernClickListener {
 
   /**
@@ -189,20 +185,6 @@ public class ColumnFilterDialog extends ModernDialogWindow
 
     setContent(content);
 
-    Box buttonPanel = new ButtonsBox();
-
-    ModernButtonWidget button = new ModernDialogButton(UI.BUTTON_OK);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    buttonPanel.add(ModernPanel.createHGap());
-
-    button = new ModernDialogButton(UI.BUTTON_CANCEL);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    setButtons(buttonPanel);
-
     toggleButton.addClickListener(this);
     selectAllButton.addClickListener(this);
     unselectAllButton.addClickListener(this);
@@ -220,6 +202,7 @@ public class ColumnFilterDialog extends ModernDialogWindow
    * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
    * ui. event.ModernClickEvent)
    */
+  @Override
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(toggleButton)) {
       toggle();
@@ -233,14 +216,8 @@ public class ColumnFilterDialog extends ModernDialogWindow
       } catch (IOException e1) {
         e1.printStackTrace();
       }
-    } else if (e.getMessage().equals(UI.BUTTON_OK)) {
-      setStatus(ModernDialogStatus.OK);
-
-      close();
-    } else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
-      close();
     } else {
-      // do nothing
+      super.clicked(e);
     }
   }
 

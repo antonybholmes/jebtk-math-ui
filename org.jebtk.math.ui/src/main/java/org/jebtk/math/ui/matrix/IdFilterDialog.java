@@ -48,13 +48,11 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.combobox.ModernComboBox;
-import org.jebtk.modern.dialog.ModernDialogButton;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.dialog.ModernDialogStatus;
-import org.jebtk.modern.dialog.ModernDialogWindow;
+import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
@@ -76,7 +74,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class IdFilterDialog.
  */
-public class IdFilterDialog extends ModernDialogWindow
+public class IdFilterDialog extends ModernDialogTaskWindow
     implements ModernClickListener, KeyListener {
 
   /**
@@ -276,23 +274,11 @@ public class IdFilterDialog extends ModernDialogWindow
 
     setContent(content);
 
-    ButtonsBox buttonPanel = new ButtonsBox();
+    getButtonBar().addLeft(checkExact);
+    getButtonBar().addLeft(ModernPanel.createHGap());
+    getButtonBar().addLeft(checkInList);
 
-    buttonPanel.addLeft(checkExact);
-    buttonPanel.addLeft(ModernPanel.createHGap());
-    buttonPanel.addLeft(checkInList);
-
-    ModernButtonWidget button = new ModernDialogButton(UI.BUTTON_OK);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    buttonPanel.add(ModernPanel.createHGap());
-
-    button = new ModernDialogButton(UI.BUTTON_CANCEL);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    setButtons(buttonPanel);
+    
 
     setSize(640, 480);
 
@@ -323,6 +309,7 @@ public class IdFilterDialog extends ModernDialogWindow
    * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
    * ui. event.ModernClickEvent)
    */
+  @Override
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(addButton)) {
       addId();
@@ -336,14 +323,8 @@ public class IdFilterDialog extends ModernDialogWindow
       removeId();
     } else if (e.getSource().equals(clearButton)) {
       clearIds();
-    } else if (e.getMessage().equals(UI.BUTTON_OK)) {
-      setStatus(ModernDialogStatus.OK);
-
-      close();
-    } else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
-      close();
     } else {
-      // do nothing
+      super.clicked(e);
     }
   }
 

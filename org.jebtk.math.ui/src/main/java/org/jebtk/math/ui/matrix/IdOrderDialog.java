@@ -50,14 +50,10 @@ import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
-import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.combobox.ModernComboBox;
-import org.jebtk.modern.dialog.ModernDialogButton;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
-import org.jebtk.modern.dialog.ModernDialogStatus;
-import org.jebtk.modern.dialog.ModernDialogWindow;
+import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ArrowDownVectorIcon;
@@ -77,7 +73,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class IdOrderDialog extends ModernDialogWindow
+public class IdOrderDialog extends ModernDialogTaskWindow
     implements ModernClickListener {
 
   /**
@@ -236,20 +232,6 @@ public class IdOrderDialog extends ModernDialogWindow
 
     setContent(content);
 
-    Box buttonPanel = new ButtonsBox();
-
-    ModernButtonWidget button = new ModernDialogButton(UI.BUTTON_OK);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    buttonPanel.add(ModernPanel.createHGap());
-
-    button = new ModernDialogButton(UI.BUTTON_CANCEL);
-    button.addClickListener(this);
-    buttonPanel.add(button);
-
-    setButtons(buttonPanel);
-
     changeIds();
 
     setSize(640, 480);
@@ -281,6 +263,7 @@ public class IdOrderDialog extends ModernDialogWindow
    * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
    * ui. event.ModernClickEvent)
    */
+  @Override
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mUpButton)) {
       swapUp();
@@ -294,14 +277,8 @@ public class IdOrderDialog extends ModernDialogWindow
       }
     } else if (e.getSource().equals(mAlphabeticalButton)) {
       sortAlphabetically();
-    } else if (e.getMessage().equals(UI.BUTTON_OK)) {
-      setStatus(ModernDialogStatus.OK);
-
-      close();
-    } else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
-      close();
     } else {
-      // do nothing
+     super.clicked(e);
     }
   }
 

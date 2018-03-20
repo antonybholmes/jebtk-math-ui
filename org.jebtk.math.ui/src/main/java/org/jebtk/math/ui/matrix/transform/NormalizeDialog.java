@@ -37,7 +37,7 @@ import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.dialog.ModernDialogButton;
 import org.jebtk.modern.dialog.ModernDialogStatus;
-import org.jebtk.modern.dialog.ModernDialogWindow;
+import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.MatrixPanel;
@@ -53,23 +53,13 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class NormalizeDialog.
  */
-public class NormalizeDialog extends ModernDialogWindow
+public class NormalizeDialog extends ModernDialogTaskWindow
     implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /**
-   * The ok button.
-   */
-  private ModernButton okButton = new ModernDialogButton(UI.BUTTON_OK);
-
-  /**
-   * The close button.
-   */
-  private ModernButton closeButton = new ModernDialogButton(UI.BUTTON_CANCEL);
 
   /**
    * The min field.
@@ -100,9 +90,6 @@ public class NormalizeDialog extends ModernDialogWindow
    * @param scale the new up
    */
   private void setup(double scale) {
-    okButton.addClickListener(this);
-    closeButton.addClickListener(this);
-
     minField.setText(scale);
 
     setSize(new Dimension(320, 160));
@@ -144,29 +131,6 @@ public class NormalizeDialog extends ModernDialogWindow
     // panel.add(buttonPanel, BorderLayout.PAGE_END);
 
     setContent(matrixPanel);
-
-    Box buttonPanel = new ButtonsBox();
-
-    buttonPanel.add(okButton);
-    buttonPanel.add(ModernPanel.createHGap());
-    buttonPanel.add(closeButton);
-
-    setButtons(buttonPanel);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
-   * ui. event.ModernClickEvent)
-   */
-  public final void clicked(ModernClickEvent e) {
-    if (e.getMessage().equals(UI.BUTTON_OK)) {
-      setStatus(ModernDialogStatus.OK);
-    }
-
-    close();
   }
 
   /**
