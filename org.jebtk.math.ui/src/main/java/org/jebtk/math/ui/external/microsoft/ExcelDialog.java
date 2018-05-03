@@ -25,7 +25,6 @@ import org.jebtk.modern.io.FileDialog.SaveDialog;
 import org.jebtk.modern.io.FileDialog.SaveFileSelection;
 import org.jebtk.modern.io.TxtGuiFileFilter;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ExcelDialog.
  */

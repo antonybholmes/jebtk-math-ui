@@ -38,7 +38,6 @@ import org.jebtk.math.ui.StdDevFilterDialog;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class MatrixTransforms.
  */

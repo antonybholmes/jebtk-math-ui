@@ -34,7 +34,6 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class MinExpFilterDialog.
  */

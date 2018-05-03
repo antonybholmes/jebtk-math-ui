@@ -30,7 +30,6 @@ package org.jebtk.math.ui;
 import org.jebtk.modern.input.ModernNumericalInputDialog;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class MinThresholdDialog.
  */

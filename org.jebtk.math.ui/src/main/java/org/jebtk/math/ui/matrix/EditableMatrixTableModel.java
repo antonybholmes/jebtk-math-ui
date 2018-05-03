@@ -29,7 +29,6 @@ package org.jebtk.math.ui.matrix;
 
 import org.jebtk.math.matrix.DataFrame;
 
-// TODO: Auto-generated Javadoc
 /**
  * Editable version of the matrix table model.
  *

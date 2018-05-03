@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Wrapper for providing a GUI to edit matrix transformations.
  * 

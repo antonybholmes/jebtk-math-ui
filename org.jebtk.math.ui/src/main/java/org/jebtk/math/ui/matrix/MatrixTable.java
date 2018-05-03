@@ -38,7 +38,6 @@ import org.jebtk.modern.table.ModernSpreadsheet;
 import org.jebtk.modern.table.ModernTableNumericCellRenderer;
 import org.jebtk.modern.zoom.ZoomModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Table model for displaying matrices.
  * 
