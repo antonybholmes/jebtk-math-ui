@@ -1,0 +1,3 @@
+[{"name":"excel","description":"Excel Files", "filters":["xls", "xlsx"]},
+{"name":"xls","description":"Excel Files", "filters":["xls"]},
+{"name":"xlsx","description":"Excel Files", "filters":["xlsx"]}]

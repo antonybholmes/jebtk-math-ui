@@ -27,27 +27,17 @@
  */
 package org.jebtk.math.ui.external.microsoft;
 
-import org.jebtk.modern.io.GuiFileExtFilter;
+import org.jebtk.modern.io.SimpleGuiFileFilter;
 
 /**
  * The class AllXlsxGuiFileFilter.
  */
-public class AllXlsxGuiFileFilter extends GuiFileExtFilter {
+public class AllXlsxGuiFileFilter extends SimpleGuiFileFilter {
 
   /**
    * Instantiates a new all xlsx gui file filter.
    */
   public AllXlsxGuiFileFilter() {
-    super("csv", "txt", "xlsx");
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see javax.swing.filechooser.FileFilter#getDescription()
-   */
-  @Override
-  public final String getDescription() {
-    return "All Excel Files (*.csv;*.txt;*.xlsx)";
+    super("All Excel Files", "csv", "txt", "xlsx");
   }
 }
