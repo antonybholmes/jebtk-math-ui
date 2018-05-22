@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.text.Formatter;
 import org.jebtk.math.matrix.DataFrame;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.history.ModernHistoryListBasicCellRenderer;
 import org.jebtk.modern.list.ModernList;
 import org.jebtk.modern.theme.MaterialService;
@@ -75,14 +75,14 @@ public class MatrixTransformCellRenderer
     int x = PADDING;
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.instance().fonts().text());
+    g2.setFont(MaterialService.getInstance().getFonts().text());
 
-    y += UIService.ICON_SIZE_20;
+    y += AssetService.ICON_SIZE_20;
 
     g2.drawString(mText1, x, y);
 
-    y += UIService.ICON_SIZE_20;
-    g2.setFont(MaterialService.instance().fonts().subtext());
+    y += AssetService.ICON_SIZE_20;
+    g2.setFont(MaterialService.getInstance().getFonts().subtext());
     g2.setColor(ALT_TEXT_COLOR);
     g2.drawString(mText3, x, y);
 

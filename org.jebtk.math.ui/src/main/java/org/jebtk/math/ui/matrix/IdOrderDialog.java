@@ -49,7 +49,7 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
@@ -95,25 +95,25 @@ public class IdOrderDialog extends ModernDialogTaskWindow
    * The member up button.
    */
   private ModernButton mUpButton = new ModernDialogFlatButton(
-      UIService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
 
   /**
    * The member down button.
    */
   private ModernButton mDownButton = new ModernDialogFlatButton(
-      UIService.getInstance().loadIcon(ArrowDownVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(ArrowDownVectorIcon.class, 16));
 
   /**
    * The member alphabetical button.
    */
   private ModernButton mAlphabeticalButton = new ModernDialogFlatButton(
-      "Alphabetical", UIService.getInstance().loadIcon("alphabetical", 16));
+      "Alphabetical", AssetService.getInstance().loadIcon("alphabetical", 16));
 
   /**
    * The member load button.
    */
   private ModernButton mLoadButton = new ModernDialogFlatButton("Load order",
-      UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
 
   /**
    * The member type combo.

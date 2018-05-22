@@ -45,7 +45,7 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCheckBox;
@@ -106,26 +106,26 @@ public class IdFilterDialog extends ModernDialogTaskWindow
    * The add button.
    */
   private ModernButton addButton = new ModernDialogFlatButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The remove button.
    */
   private ModernButton removeButton = new ModernDialogFlatButton(UI.MENU_REMOVE,
-      UIService.getInstance().loadIcon("trash_bw", 16));
+      AssetService.getInstance().loadIcon("trash_bw", 16));
 
   /**
    * The clear button.
    */
   private ModernButton clearButton = new ModernDialogFlatButton(UI.MENU_CLEAR,
-      UIService.getInstance().loadIcon("clear", UIService.ICON_SIZE_16));
+      AssetService.getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
 
   /**
    * The import button.
    */
   private ModernButton importButton = new ModernDialogFlatButton(
       UI.BUTTON_IMPORT,
-      UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
 
   /**
    * The new row text field.
