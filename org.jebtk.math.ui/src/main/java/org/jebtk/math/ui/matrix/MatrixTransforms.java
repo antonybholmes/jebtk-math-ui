@@ -165,7 +165,7 @@ public class MatrixTransforms {
    * @return the annotation matrix
    */
   public static DataFrame normalize(ModernWindow parent, DataFrame matrix) {
-    return MatrixOperations.normalize(matrix);
+    return MatrixOperations.scale(matrix);
   }
 
   /**
