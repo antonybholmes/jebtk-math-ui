@@ -27,6 +27,7 @@
  */
 package org.jebtk.math.ui.matrix;
 
+import org.jebtk.core.sys.SysUtils;
 import org.jebtk.math.matrix.DataFrame;
 
 /**
@@ -56,6 +57,8 @@ public class EditableMatrixTableModel extends MatrixTableModel {
   public boolean getIsCellEditable(int row, int col) {
     int r = row - mColAnns;
     int c = col - mRowAnns;
+    
+    //SysUtils.err().println("edit", r, c, mColAnns, mRowAnns);
 
     return r >= 0 && c >= 0;
   }

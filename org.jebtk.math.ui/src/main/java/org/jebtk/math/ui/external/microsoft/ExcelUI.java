@@ -374,7 +374,7 @@ public class ExcelUI {
       int rowAnnotations,
       String delimiter) throws InvalidFormatException, IOException {
     return new EditableMatrixTableModel(Excel.convertToMatrix(file,
-        hasHeader,
+        hasHeader ? 1 : 0,
         skipMatches,
         rowAnnotations,
         delimiter));

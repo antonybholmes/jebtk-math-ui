@@ -62,11 +62,6 @@ public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
   private boolean mSupportColor;
 
   /**
-   * The member has header.
-   */
-  private boolean mHasHeader;
-
-  /**
    * The member cols.
    */
   private int mCols;
@@ -91,7 +86,6 @@ public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
   public ExcelTableModel(Sheet sheet, boolean hasHeader, int rowAnns,
       boolean supportColor) {
     mSheet = sheet;
-    mHasHeader = hasHeader;
     mSupportColor = supportColor;
 
     Row row = sheet.getRow(0);
@@ -164,7 +158,7 @@ public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
       return null;
     }
 
-    // System.err.println("excel " + row + " " + column);
+    //System.err.println("excel " + row + " " + column);
 
     if (mSheet.getRow(row).getCell(column)
         .getCellType() == Cell.CELL_TYPE_NUMERIC) {

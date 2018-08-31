@@ -28,6 +28,7 @@
 package org.jebtk.math.ui.matrix;
 
 import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.sys.SysUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.math.matrix.MatrixEventListener;
@@ -153,9 +154,11 @@ public class MatrixTableModel extends ModernTableModel
   }
 
   /**
-   * Refresh.
+   * Determine number of annotation columns/rows from underlying matrix.
    */
   private void refresh() {
+    //SysUtils.err().println("refresh ", mMatrix.getColumnAnnotationNames());
+    
     mRowAnns = mMatrix.getRowAnnotationNames().size();
     mColAnns = mMatrix.getColumnAnnotationNames().size();
   }
@@ -172,6 +175,8 @@ public class MatrixTableModel extends ModernTableModel
   @Override
   public int getHeadingIndex(String heading) {
     String lh = heading.toLowerCase();
+    
+    System.err.println("heads " + mMatrix.getColumnNames());
 
     for (int i = 0; i < mMatrix.getCols(); ++i) {
       if (mMatrix.getColumnName(i).toLowerCase().contains(lh)) {
