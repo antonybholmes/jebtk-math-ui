@@ -132,7 +132,7 @@ public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
    * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public final int getColumnCount() {
+  public final int getColCount() {
     return mCols;
   }
 
@@ -205,7 +205,7 @@ public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
   public int getHeadingIndex(String heading) {
     String lh = heading.toLowerCase();
 
-    for (int i = 0; i < getColumnCount(); ++i) {
+    for (int i = 0; i < getColCount(); ++i) {
       if (mSheet.getRow(0).getCell(i).getStringCellValue().toLowerCase()
           .contains(lh)) {
         return i;

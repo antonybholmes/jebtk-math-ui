@@ -167,7 +167,7 @@ public class ExcelUI {
       // create header row
       row = (XSSFRow) sheet.createRow(r);
 
-      for (int i = 0; i < model.getColumnCount(); ++i) {
+      for (int i = 0; i < model.getColCount(); ++i) {
         cell = row.createCell(i);
 
         cell.setCellStyle(headerStyle);
@@ -180,7 +180,7 @@ public class ExcelUI {
     for (int i = 0; i < model.getRowCount(); ++i) {
       row = (XSSFRow) sheet.createRow(r);
 
-      for (int j = 0; j < model.getColumnCount(); ++j) {
+      for (int j = 0; j < model.getColCount(); ++j) {
         cell = row.createCell(j);
 
         Object value = model.getValueAt(i, j); // != null ? model.getValueAt(i,

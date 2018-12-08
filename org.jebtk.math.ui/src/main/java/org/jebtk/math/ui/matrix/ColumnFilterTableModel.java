@@ -76,7 +76,7 @@ public class ColumnFilterTableModel extends ModernColumnHeaderTableModel {
    * 
    * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
    */
-  public final int getColumnCount() {
+  public final int getColCount() {
     return HEADER.length;
   }
 

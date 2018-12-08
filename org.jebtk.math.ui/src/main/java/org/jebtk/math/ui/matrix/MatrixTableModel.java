@@ -72,7 +72,7 @@ public class MatrixTableModel extends ModernTableModel
    * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public int getColumnCount() {
+  public int getColCount() {
     return mMatrix.getExtCols();
   }
 
