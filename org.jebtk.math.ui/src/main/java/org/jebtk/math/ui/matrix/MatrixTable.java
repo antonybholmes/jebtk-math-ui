@@ -41,7 +41,7 @@ import org.jebtk.modern.zoom.ZoomModel;
 /**
  * Table model for displaying matrices.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MatrixTable extends ModernSpreadsheet {
@@ -85,7 +85,7 @@ public class MatrixTable extends ModernSpreadsheet {
 
     return Mathematics.subtract(
         CollectionUtils.toList(getColumnModel().getSelectionModel()),
-        ((MatrixTableModel) mModel).getMatrix().getRowAnnotationNames().size());
+        ((MatrixTableModel) mModel).getMatrix().getIndex().getNames().size());
   }
 
   /**
@@ -100,7 +100,7 @@ public class MatrixTable extends ModernSpreadsheet {
 
     return Mathematics.subtract(
         CollectionUtils.toList(getRowModel().getSelectionModel()),
-        ((MatrixTableModel) mModel).getMatrix().getColumnAnnotationNames()
+        ((MatrixTableModel) mModel).getMatrix().getColumnHeader().getNames()
             .size());
   }
 

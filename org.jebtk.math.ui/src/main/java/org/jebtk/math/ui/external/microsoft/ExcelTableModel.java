@@ -30,16 +30,16 @@ package org.jebtk.math.ui.external.microsoft;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * Provides a view onto an excel workbook where the first row is considered to
  * be a header.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public abstract class ExcelTableModel extends ModernColumnHeaderTableModel {
+public abstract class ExcelTableModel extends ModernTableModel {
 
   /**
    * The member sheet.

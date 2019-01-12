@@ -28,7 +28,6 @@
 package org.jebtk.math.ui.matrix;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.sys.SysUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.DataFrame;
 import org.jebtk.math.matrix.MatrixEventListener;
@@ -37,7 +36,7 @@ import org.jebtk.modern.table.ModernTableModel;
 /**
  * Loads.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class MatrixTableModel extends ModernTableModel
     implements MatrixEventListener {
@@ -105,7 +104,7 @@ public class MatrixTableModel extends ModernTableModel
         return TextUtils.EMPTY_STRING;
       }
       // } else if (c > -1 && r == -1 && mColAnns > 1) {
-      // return mMatrix.getColumnAnnotationName(r) + ": " + mMatrix.get(r, c);
+      // return mMatrix.getColumns().getAnnotationName(r) + ": " + mMatrix.get(r, c);
     } else {
       return mMatrix.get(r, c);
     }
@@ -157,10 +156,10 @@ public class MatrixTableModel extends ModernTableModel
    * Determine number of annotation columns/rows from underlying matrix.
    */
   private void refresh() {
-    //SysUtils.err().println("refresh ", mMatrix.getColumnAnnotationNames());
+    //SysUtils.err().println("refresh ", mMatrix.getColumns().getNames());
     
-    mRowAnns = mMatrix.getRowAnnotationNames().size();
-    mColAnns = mMatrix.getColumnAnnotationNames().size();
+    mRowAnns = mMatrix.getIndex().getNames().size();
+    mColAnns = mMatrix.getColumnHeader().getNames().size();
   }
 
   /**
@@ -176,8 +175,6 @@ public class MatrixTableModel extends ModernTableModel
   public int getHeadingIndex(String heading) {
     String lh = heading.toLowerCase();
     
-    System.err.println("heads " + mMatrix.getColumnNames());
-
     for (int i = 0; i < mMatrix.getCols(); ++i) {
       if (mMatrix.getColumnName(i).toLowerCase().contains(lh)) {
         return i;

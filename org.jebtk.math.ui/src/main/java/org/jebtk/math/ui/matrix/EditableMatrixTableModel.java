@@ -27,13 +27,12 @@
  */
 package org.jebtk.math.ui.matrix;
 
-import org.jebtk.core.sys.SysUtils;
 import org.jebtk.math.matrix.DataFrame;
 
 /**
  * Editable version of the matrix table model.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class EditableMatrixTableModel extends MatrixTableModel {
 

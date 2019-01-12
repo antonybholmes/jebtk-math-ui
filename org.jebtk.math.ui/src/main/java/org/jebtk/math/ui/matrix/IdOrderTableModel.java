@@ -31,16 +31,16 @@ import java.util.List;
 
 import org.jebtk.core.Indexed;
 import org.jebtk.core.collections.CollectionUtils;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 // TODO: Auto-generated Javadoc
 /**
  * Table model for ordering rows/columns.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public class IdOrderTableModel extends ModernColumnHeaderTableModel {
+public class IdOrderTableModel extends ModernTableModel {
 
   /**
    * The constant HEADER.
@@ -90,11 +90,11 @@ public class IdOrderTableModel extends ModernColumnHeaderTableModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int column) {
-    return CollectionUtils.asList(HEADER[column]);
+  public final String getColumnName(int column) {
+    return HEADER[column];
   }
 
   /*

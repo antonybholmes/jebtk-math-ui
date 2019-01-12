@@ -45,6 +45,7 @@ import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.jebtk.core.collections.ArrayUtils;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.math.external.microsoft.Excel;
@@ -163,7 +164,8 @@ public class ExcelUI {
     XSSFRow row;
     XSSFCell cell;
 
-    if (model.getColumnAnnotationNames() != null) {
+    /*
+    if (model.getColumns().getNames() != null) {
       // create header row
       row = (XSSFRow) sheet.createRow(r);
 
@@ -171,11 +173,12 @@ public class ExcelUI {
         cell = row.createCell(i);
 
         cell.setCellStyle(headerStyle);
-        cell.setCellValue(model.getColumnName(i));
+        cell.setCellValue(model.getColumnHeader().getHeader(i));
       }
 
       ++r;
     }
+    */
 
     for (int i = 0; i < model.getRowCount(); ++i) {
       row = (XSSFRow) sheet.createRow(r);
@@ -258,7 +261,7 @@ public class ExcelUI {
    * @throws IOException Signals that an I/O exception has occurred.
    * @throws InvalidFormatException the invalid format exception
    */
-  public static List<String> getTextFromFile(ModernWindow parent,
+  public static String[] getTextFromFile(ModernWindow parent,
       Path pwd,
       boolean skipHeader) throws IOException, InvalidFormatException {
     Path file = openExcelFileDialog(parent, pwd);
@@ -266,7 +269,7 @@ public class ExcelUI {
     if (file != null) {
       return Excel.getTextFromFile(file, skipHeader);
     } else {
-      return Collections.emptyList();
+      return ArrayUtils.EMPTY_STRING_ARRAY;
     }
   }
 

@@ -41,7 +41,7 @@ import org.jebtk.modern.dataview.ModernDataCellStyle;
 /**
  * Provides a view onto an excel workbook.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class XlsTableModel extends ExcelTableModel {

@@ -34,7 +34,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Wrapper for providing a GUI to edit matrix transformations.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MatrixTransform implements MatrixTransformEventProducer {

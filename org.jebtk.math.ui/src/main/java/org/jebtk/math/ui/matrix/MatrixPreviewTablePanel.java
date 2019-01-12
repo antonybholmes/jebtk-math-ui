@@ -89,7 +89,7 @@ public class MatrixPreviewTablePanel extends ModernWidget {
    */
   public final void clear() {
     // use and empty table model to display nothing
-    table.setModel(new EmptyTableModel());
+    table.setModel(new EmptyTableModel(50, 50));
   }
 
   /**
