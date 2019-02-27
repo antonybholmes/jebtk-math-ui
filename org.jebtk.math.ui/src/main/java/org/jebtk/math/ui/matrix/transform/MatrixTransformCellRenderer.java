@@ -75,14 +75,14 @@ public class MatrixTransformCellRenderer
     int x = PADDING;
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.getInstance().getFonts().text());
+    g2.setFont(MaterialService.instance().getFonts().text());
 
     y += AssetService.ICON_SIZE_20;
 
     g2.drawString(mText1, x, y);
 
     y += AssetService.ICON_SIZE_20;
-    g2.setFont(MaterialService.getInstance().getFonts().subtext());
+    g2.setFont(MaterialService.instance().getFonts().subtext());
     g2.setColor(ALT_TEXT_COLOR);
     g2.drawString(mText3, x, y);
 

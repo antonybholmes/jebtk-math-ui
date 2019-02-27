@@ -40,10 +40,9 @@ import org.jebtk.core.Indexed;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -52,6 +51,7 @@ import org.jebtk.modern.io.FileDialog;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPaddedPanel;
 import org.jebtk.modern.panel.ModernPanel;
+import org.jebtk.modern.ribbon.RibbonButton;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.table.ModernSimpleTable;
@@ -94,24 +94,24 @@ public class ColumnFilterDialog extends ModernDialogTaskWindow
   /**
    * The toggle button.
    */
-  private ModernButton toggleButton = new ModernDialogFlatButton("Toggle");
+  private ModernButton toggleButton = new RibbonButton("Toggle");
 
   /**
    * The select all button.
    */
-  private ModernButton selectAllButton = new ModernDialogFlatButton(
+  private ModernButton selectAllButton = new RibbonButton(
       "Select All");
 
   /**
    * The unselect all button.
    */
-  private ModernButton unselectAllButton = new ModernDialogFlatButton(
+  private ModernButton unselectAllButton = new RibbonButton(
       "Unselect All");
 
   /**
    * The member load button.
    */
-  private ModernButton mLoadButton = new ModernDialogFlatButton("Load...",
+  private ModernButton mLoadButton = new RibbonButton("Load...",
       AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
 
   /**

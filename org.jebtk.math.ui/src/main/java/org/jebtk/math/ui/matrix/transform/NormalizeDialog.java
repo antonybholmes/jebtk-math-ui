@@ -29,19 +29,12 @@ package org.jebtk.math.ui.matrix.transform;
 
 import java.awt.Dimension;
 
-import javax.swing.Box;
 import javax.swing.JDialog;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.button.ButtonsBox;
-import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.dialog.ModernDialogButton;
-import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
-import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.MatrixPanel;
-import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextBorderPanel;
