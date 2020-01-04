@@ -33,12 +33,12 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.jebtk.math.external.microsoft.Excel;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.panel.MatrixPanel;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc

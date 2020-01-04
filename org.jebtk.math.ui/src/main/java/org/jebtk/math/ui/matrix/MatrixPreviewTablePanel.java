@@ -30,10 +30,10 @@ package org.jebtk.math.ui.matrix;
 import java.awt.BorderLayout;
 
 import org.jebtk.math.matrix.DataFrame;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.EmptyTableModel;
 import org.jebtk.modern.table.ModernSpreadsheet;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class MatrixPreviewTablePanel.
