@@ -53,9 +53,7 @@ public class ExcelDialog {
      * @return the open files selection
      */
     public OpenFilesSelection xlsx() {
-      return mOpen.filter(new AllXlsxGuiFileFilter(),
-          new XlsxGuiFileFilter(),
-          new CsvGuiFileFilter(),
+      return mOpen.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
           new TxtGuiFileFilter());
     }
   }
@@ -93,9 +91,7 @@ public class ExcelDialog {
      * @return the save file selection
      */
     public SaveFileSelection xlsx() {
-      return mSave.filter(new AllXlsxGuiFileFilter(),
-          new XlsxGuiFileFilter(),
-          new CsvGuiFileFilter(),
+      return mSave.filter(new AllXlsxGuiFileFilter(), new XlsxGuiFileFilter(), new CsvGuiFileFilter(),
           new TxtGuiFileFilter());
     }
   }

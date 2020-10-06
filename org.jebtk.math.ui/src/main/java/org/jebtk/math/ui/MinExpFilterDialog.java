@@ -57,12 +57,11 @@ public class MinExpFilterDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new min exp filter dialog.
    *
-   * @param parent the parent
-   * @param minExp the min exp
+   * @param parent     the parent
+   * @param minExp     the min exp
    * @param minSamples the min samples
    */
-  public MinExpFilterDialog(ModernWindow parent, double minExp,
-      int minSamples) {
+  public MinExpFilterDialog(ModernWindow parent, double minExp, int minSamples) {
     super(parent);
 
     setTitle("Expression Filter");
@@ -76,7 +75,7 @@ public class MinExpFilterDialog extends ModernDialogTaskWindow {
   /**
    * Setup.
    *
-   * @param minExp the min exp
+   * @param minExp     the min exp
    * @param minSamples the min samples
    */
   private void setup(double minExp, int minSamples) {

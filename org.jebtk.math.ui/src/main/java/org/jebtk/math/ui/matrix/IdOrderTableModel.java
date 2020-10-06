@@ -174,8 +174,7 @@ public class IdOrderTableModel extends ModernTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   @Override

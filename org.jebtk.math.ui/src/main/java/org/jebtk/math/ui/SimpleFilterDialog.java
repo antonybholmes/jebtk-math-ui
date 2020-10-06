@@ -59,8 +59,8 @@ public class SimpleFilterDialog extends ModernDialogTaskWindow {
    * Instantiates a new std dev filter dialog.
    *
    * @param parent the parent
-   * @param name the name
-   * @param min the min
+   * @param name   the name
+   * @param min    the min
    */
   public SimpleFilterDialog(ModernWindow parent, String name, double min) {
     super(parent);

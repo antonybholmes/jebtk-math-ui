@@ -78,13 +78,12 @@ public abstract class ExcelTableModel extends ModernTableModel {
   /**
    * Create a new table model from an Excel sheet.
    *
-   * @param sheet the sheet
-   * @param hasHeader the has header
+   * @param sheet          the sheet
+   * @param hasHeader      the has header
    * @param rowAnnotations the row annotations
-   * @param supportColor the support color
+   * @param supportColor   the support color
    */
-  public ExcelTableModel(Sheet sheet, boolean hasHeader, int rowAnns,
-      boolean supportColor) {
+  public ExcelTableModel(Sheet sheet, boolean hasHeader, int rowAnns, boolean supportColor) {
     mSheet = sheet;
     mSupportColor = supportColor;
 
@@ -99,8 +98,8 @@ public abstract class ExcelTableModel extends ModernTableModel {
     /*
      * if (hasHeader) { Cell cell;
      * 
-     * for (int i = mRowAnnotations; i < row.getPhysicalNumberOfCells(); ++i) {
-     * cell = row.getCell(i);
+     * for (int i = mRowAnnotations; i < row.getPhysicalNumberOfCells(); ++i) { cell
+     * = row.getCell(i);
      * 
      * String value = cell != null ? cell.getStringCellValue() : "";
      * 
@@ -153,15 +152,13 @@ public abstract class ExcelTableModel extends ModernTableModel {
    */
   @Override
   public Object getValueAt(int row, int column) {
-    if (row == -1 || column == -1 || mSheet.getRow(row) == null
-        || mSheet.getRow(row).getCell(column) == null) {
+    if (row == -1 || column == -1 || mSheet.getRow(row) == null || mSheet.getRow(row).getCell(column) == null) {
       return null;
     }
 
-    //System.err.println("excel " + row + " " + column);
+    // System.err.println("excel " + row + " " + column);
 
-    if (mSheet.getRow(row).getCell(column)
-        .getCellType() == Cell.CELL_TYPE_NUMERIC) {
+    if (mSheet.getRow(row).getCell(column).getCellType() == Cell.CELL_TYPE_NUMERIC) {
       return mSheet.getRow(row).getCell(column).getNumericCellValue();
     } else {
       return mSheet.getRow(row).getCell(column).getStringCellValue();
@@ -184,8 +181,7 @@ public abstract class ExcelTableModel extends ModernTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   @Override
@@ -206,8 +202,7 @@ public abstract class ExcelTableModel extends ModernTableModel {
     String lh = heading.toLowerCase();
 
     for (int i = 0; i < getColCount(); ++i) {
-      if (mSheet.getRow(0).getCell(i).getStringCellValue().toLowerCase()
-          .contains(lh)) {
+      if (mSheet.getRow(0).getCell(i).getStringCellValue().toLowerCase().contains(lh)) {
         return i;
       }
     }

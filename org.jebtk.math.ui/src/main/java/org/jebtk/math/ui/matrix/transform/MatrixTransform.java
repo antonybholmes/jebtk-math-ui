@@ -67,25 +67,23 @@ public class MatrixTransform implements MatrixTransformEventProducer {
   /**
    * Instantiates a new matrix transform.
    *
-   * @param parent the parent
-   * @param name the name
+   * @param parent      the parent
+   * @param name        the name
    * @param inputMatrix the input matrix
    */
-  public MatrixTransform(ModernWindow parent, String name,
-      DataFrame inputMatrix) {
+  public MatrixTransform(ModernWindow parent, String name, DataFrame inputMatrix) {
     this(parent, name, name, inputMatrix);
   }
 
   /**
    * Instantiates a new matrix transform.
    *
-   * @param parent the parent
-   * @param name the name
+   * @param parent      the parent
+   * @param name        the name
    * @param description the description
    * @param inputMatrix the input matrix
    */
-  public MatrixTransform(ModernWindow parent, String name, String description,
-      DataFrame inputMatrix) {
+  public MatrixTransform(ModernWindow parent, String name, String description, DataFrame inputMatrix) {
     mParent = parent;
     mName = name;
     mDescription = description;
@@ -170,8 +168,8 @@ public class MatrixTransform implements MatrixTransformEventProducer {
    * (non-Javadoc)
    * 
    * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
-   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.
-   * rdf. lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia. rdf.
+   * lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
    */
   @Override
   public void removeMatrixTransformListener(MatrixTransformListener l) {

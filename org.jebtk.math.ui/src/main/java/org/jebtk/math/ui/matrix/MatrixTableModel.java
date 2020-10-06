@@ -38,8 +38,7 @@ import org.jebtk.modern.table.ModernTableModel;
  *
  * @author Antony Holmes
  */
-public class MatrixTableModel extends ModernTableModel
-    implements MatrixEventListener {
+public class MatrixTableModel extends ModernTableModel implements MatrixEventListener {
 
   /**
    * The member matrix.
@@ -156,8 +155,8 @@ public class MatrixTableModel extends ModernTableModel
    * Determine number of annotation columns/rows from underlying matrix.
    */
   private void refresh() {
-    //SysUtils.err().println("refresh ", mMatrix.getColumns().getNames());
-    
+    // SysUtils.err().println("refresh ", mMatrix.getColumns().getNames());
+
     mRowAnns = mMatrix.getIndex().getNames().size();
     mColAnns = mMatrix.getColumnHeader().getNames().size();
   }
@@ -174,7 +173,7 @@ public class MatrixTableModel extends ModernTableModel
   @Override
   public int getHeadingIndex(String heading) {
     String lh = heading.toLowerCase();
-    
+
     for (int i = 0; i < mMatrix.getCols(); ++i) {
       if (mMatrix.getColumnName(i).toLowerCase().contains(lh)) {
         return i;

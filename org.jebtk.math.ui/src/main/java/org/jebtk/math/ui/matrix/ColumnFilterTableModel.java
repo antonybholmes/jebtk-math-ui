@@ -121,8 +121,7 @@ public class ColumnFilterTableModel extends ModernTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   public final boolean getIsCellEditable(int row, int col) {

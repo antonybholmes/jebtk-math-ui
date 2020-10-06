@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  *
  * @author Antony Holmes
  */
-public class MatrixTransformEventListeners
-    extends EventProducer<MatrixTransformListener>
+public class MatrixTransformEventListeners extends EventProducer<MatrixTransformListener>
     implements MatrixTransformEventProducer {
 
   /**
@@ -59,8 +58,8 @@ public class MatrixTransformEventListeners
    * (non-Javadoc)
    * 
    * @see edu.columbia.rdf.lib.bioinformatics.ui.math.matrix.transform.
-   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia.
-   * rdf. lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
+   * MatrixTransformEventProducer#removeMatrixTransformListener(edu.columbia. rdf.
+   * lib.bioinformatics.ui.math.matrix.transform.MatrixTransformListener)
    */
   public void removeMatrixTransformListener(MatrixTransformListener l) {
     mListeners.remove(l);
@@ -70,8 +69,7 @@ public class MatrixTransformEventListeners
    * Fire matrix transform changed.
    */
   public void fireMatrixTransformChanged() {
-    fireMatrixTransformChanged(
-        new ChangeEvent(this, MATRIX_TRANSFORM_CHANGED_EVENT));
+    fireMatrixTransformChanged(new ChangeEvent(this, MATRIX_TRANSFORM_CHANGED_EVENT));
   }
 
   /*

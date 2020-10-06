@@ -63,8 +63,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The Class ColumnFilterDialog.
  */
-public class ColumnFilterDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class ColumnFilterDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The Constant serialVersionUID.
@@ -99,14 +98,12 @@ public class ColumnFilterDialog extends ModernDialogTaskWindow
   /**
    * The select all button.
    */
-  private ModernButton selectAllButton = new RibbonButton(
-      "Select All");
+  private ModernButton selectAllButton = new RibbonButton("Select All");
 
   /**
    * The unselect all button.
    */
-  private ModernButton unselectAllButton = new RibbonButton(
-      "Unselect All");
+  private ModernButton unselectAllButton = new RibbonButton("Unselect All");
 
   /**
    * The member load button.
@@ -127,12 +124,11 @@ public class ColumnFilterDialog extends ModernDialogTaskWindow
   /**
    * Instantiates a new column filter dialog.
    *
-   * @param parent the parent
-   * @param ids the ids
+   * @param parent           the parent
+   * @param ids              the ids
    * @param workingDirectory the working directory
    */
-  public ColumnFilterDialog(ModernWindow parent,
-      List<Indexed<Integer, String>> ids, Path workingDirectory) {
+  public ColumnFilterDialog(ModernWindow parent, List<Indexed<Integer, String>> ids, Path workingDirectory) {
     super(parent);
 
     mColumns = ids;
@@ -199,8 +195,8 @@ public class ColumnFilterDialog extends ModernDialogTaskWindow
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui.
-   * ui. event.ModernClickEvent)
+   * org.abh.common.ui.ui.event.ModernClickListener#clicked(org.abh.common.ui. ui.
+   * event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {
@@ -261,8 +257,7 @@ public class ColumnFilterDialog extends ModernDialogTaskWindow
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line,
-            TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
         ids.add(tokens.get(0));
       }

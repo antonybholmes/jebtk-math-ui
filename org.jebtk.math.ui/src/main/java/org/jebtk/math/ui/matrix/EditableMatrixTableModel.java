@@ -48,16 +48,15 @@ public class EditableMatrixTableModel extends MatrixTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * @see org.abh.common.ui.ui.dataview.ModernDataGridModel#getIsCellEditable(int,
    * int)
    */
   @Override
   public boolean getIsCellEditable(int row, int col) {
     int r = row - mColAnns;
     int c = col - mRowAnns;
-    
-    //SysUtils.err().println("edit", r, c, mColAnns, mRowAnns);
+
+    // SysUtils.err().println("edit", r, c, mColAnns, mRowAnns);
 
     return r >= 0 && c >= 0;
   }
